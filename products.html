@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products â€” Jan Wholesale Marketplace</title>
+  <meta name="description" content="Browse 50,000+ wholesale products. Groceries, FMCG, beverages, snacks, cleaning and more at unbeatable wholesale prices." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/amazon.css" />
+</head>
+<body>
+
+  <!-- â”€â”€ Navbar â”€â”€ -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo" id="brand-logo">Jan<div class="logo-dot"></div></a>
+      <div class="nav-links">
+        <a href="index.html"    class="nav-link" id="nav-home">Home</a>
+        <a href="products.html" class="nav-link active" id="nav-products">Products</a>
+        <a href="about.html"    class="nav-link" id="nav-about">How It Works</a>
+        <a href="index.html#warehouses" class="nav-link" id="nav-wh">Warehouses</a>
+      </div>
+      <div class="nav-search">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search products..." id="search-input" oninput="liveSearch(this.value)" />
+      </div>
+      <div class="nav-actions">
+        <div id="nav-user-widget">
+          <button class="btn btn-primary btn-sm" onclick="openAuthModal('login')" id="nav-signin-btn">Sign In</button>
+        </div>
+        <a href="cart.html" class="nav-cart-btn" id="nav-cart-btn" aria-label="Cart">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge" style="display:none">0</span>
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html"    class="nav-link">Home</a>
+    <a href="products.html" class="nav-link">Products</a>
+    <a href="about.html"    class="nav-link">How It Works</a>
+    <a href="cart.html"     class="nav-link">My Cart</a>
+  </div>
+
+  <!-- â”€â”€ Page Header â”€â”€ -->
+  <div class="page-header">
+    <div class="container page-header-inner">
+      <div class="page-breadcrumb">
+        <a href="index.html">Home</a> / <span>Products</span>
+      </div>
+      <h1 class="page-title">Wholesale Product Catalog</h1>
+      <p style="color:rgba(255,255,255,0.5);font-size:15px;margin-top:8px">50,000+ products Â· Best wholesale prices Â· Pan-India delivery</p>
+    </div>
+  </div>
+
+  <!-- â”€â”€ Category Filter Tabs â”€â”€ -->
+  <div style="background:#fff;border-bottom:1px solid var(--grey-100);position:sticky;top:72px;z-index:90">
+    <div class="container" style="display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none">
+      <button class="cat-filter-btn btn btn-sm btn-primary active" id="filter-all" data-cat="all" onclick="filterByCategory('all')">All</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-grocery" data-cat="grocery" onclick="filterByCategory('grocery')">ðŸ›’ Grocery</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-fmcg" data-cat="fmcg" onclick="filterByCategory('fmcg')">ðŸ§´ FMCG</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-beverages" data-cat="beverages" onclick="filterByCategory('beverages')">ðŸ§ƒ Beverages</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-snacks" data-cat="snacks" onclick="filterByCategory('snacks')">ðŸ¿ Snacks</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-cleaning" data-cat="cleaning" onclick="filterByCategory('cleaning')">ðŸ§¹ Cleaning</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-personal" data-cat="personal-care" onclick="filterByCategory('personal-care')">ðŸ§º Personal Care</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-dairy" data-cat="dairy" onclick="filterByCategory('dairy')">ðŸ¥› Dairy</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-spices" data-cat="spices" onclick="filterByCategory('spices')">ðŸŒ¶ï¸ Spices</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-stationery" data-cat="stationery" onclick="filterByCategory('stationery')">âœï¸ Stationery</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="products-layout">
+
+      <!-- â”€â”€ Sidebar Filters â”€â”€ -->
+      <aside class="sidebar">
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">
+            Price Range
+            <button onclick="resetPrice()" id="reset-price-btn">Reset</button>
+          </div>
+          <div class="price-range-labels">
+            <span>â‚¹0</span><span id="price-max-label">â‚¹5,000</span>
+          </div>
+          <input type="range" class="range-slider" id="price-range" min="0" max="5000" value="5000"
+            oninput="document.getElementById('price-max-label').textContent='â‚¹'+this.value" />
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">Brand</div>
+          <div class="filter-search">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search brandâ€¦" id="brand-search-input" />
+          </div>
+          <div class="checkbox-group" id="brand-filters">
+            <label class="checkbox-item" for="b-aashirvaad">
+              <input type="checkbox" id="b-aashirvaad" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Aashirvaad</span><span class="checkbox-count">42</span>
+            </label>
+            <label class="checkbox-item" for="b-colgate">
+              <input type="checkbox" id="b-colgate" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Colgate</span><span class="checkbox-count">38</span>
+            </label>
+            <label class="checkbox-item" for="b-lifebuoy">
+              <input type="checkbox" id="b-lifebuoy" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Lifebuoy</span><span class="checkbox-count">29</span>
+            </label>
+            <label class="checkbox-item" for="b-nestle">
+              <input type="checkbox" id="b-nestle" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">NestlÃ©</span><span class="checkbox-count">55</span>
+            </label>
+            <label class="checkbox-item" for="b-hul">
+              <input type="checkbox" id="b-hul" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">HUL</span><span class="checkbox-count">73</span>
+            </label>
+            <label class="checkbox-item" for="b-itc">
+              <input type="checkbox" id="b-itc" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">ITC</span><span class="checkbox-count">31</span>
+            </label>
+            <label class="checkbox-item" for="b-britannia">
+              <input type="checkbox" id="b-britannia" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Britannia</span><span class="checkbox-count">48</span>
+            </label>
+            <label class="checkbox-item" for="b-marico">
+              <input type="checkbox" id="b-marico" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Marico</span><span class="checkbox-count">22</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">Warehouse</div>
+          <div class="checkbox-group">
+            <label class="checkbox-item" for="wh-metro">
+              <input type="checkbox" id="wh-metro" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Metro C&C</span><span class="checkbox-count">â­ 4.9</span>
+            </label>
+            <label class="checkbox-item" for="wh-rel">
+              <input type="checkbox" id="wh-rel" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Reliance Smart</span><span class="checkbox-count">â­ 4.8</span>
+            </label>
+            <label class="checkbox-item" for="wh-bb">
+              <input type="checkbox" id="wh-bb" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">BigBazaar WS</span><span class="checkbox-count">â­ 4.7</span>
+            </label>
+            <label class="checkbox-item" for="wh-agro">
+              <input type="checkbox" id="wh-agro" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">AgroHub</span><span class="checkbox-count">â­ 4.8</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">Minimum Order Qty</div>
+          <div class="checkbox-group">
+            <label class="checkbox-item" for="moq-12">
+              <input type="checkbox" id="moq-12" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">â‰¤ 12 units</span>
+            </label>
+            <label class="checkbox-item" for="moq-24">
+              <input type="checkbox" id="moq-24" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">â‰¤ 24 units</span>
+            </label>
+            <label class="checkbox-item" for="moq-48">
+              <input type="checkbox" id="moq-48" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">â‰¤ 48 units</span>
+            </label>
+            <label class="checkbox-item" for="moq-any">
+              <input type="checkbox" id="moq-any" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Any quantity</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">Delivery Speed</div>
+          <div class="checkbox-group">
+            <label class="checkbox-item" for="del-same">
+              <input type="checkbox" id="del-same" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Same Day</span>
+            </label>
+            <label class="checkbox-item" for="del-next">
+              <input type="checkbox" id="del-next" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Next Day</span>
+            </label>
+            <label class="checkbox-item" for="del-48">
+              <input type="checkbox" id="del-48" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Within 48 hrs</span>
+            </label>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- â”€â”€ Products Content â”€â”€ -->
+      <div>
+        <div class="products-toolbar">
+          <div class="toolbar-left">
+            <div class="toolbar-count">Showing <span id="product-count">48</span> products</div>
+            <div class="active-filters" id="active-filters">
+              <span class="active-filter">Grocery <span class="remove" onclick="removeFilter(this)">Ã—</span></span>
+              <span class="active-filter">FMCG <span class="remove" onclick="removeFilter(this)">Ã—</span></span>
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <select class="sort-select" id="sort-select-products">
+              <option value="default">Sort: Recommended</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="popular">Most Popular</option>
+              <option value="newest">Newest First</option>
+            </select>
+            <div class="view-toggle">
+              <button class="view-btn active" id="grid-view-btn" data-view="grid" title="Grid view">âŠž</button>
+              <button class="view-btn" id="list-view-btn" data-view="list" title="List view">â˜°</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="amz-products-grid" id="products-full-grid" style="grid-template-columns:repeat(auto-fill,minmax(210px,1fr))">
+          <!-- Rendered by JS on DOMContentLoaded -->
+
+
+        </div><!-- /products-full-grid -->
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <button class="page-btn" id="page-prev" onclick="changePage(-1)">â†</button>
+          <button class="page-btn active" id="page-1" onclick="setPage(1)">1</button>
+          <button class="page-btn" id="page-2" onclick="setPage(2)">2</button>
+          <button class="page-btn" id="page-3" onclick="setPage(3)">3</button>
+          <button class="page-btn" id="page-dots">â€¦</button>
+          <button class="page-btn" id="page-12" onclick="setPage(12)">12</button>
+          <button class="page-btn" id="page-next" onclick="changePage(1)">â†’</button>
+        </div>
+      </div><!-- /products content -->
+
+    </div><!-- /products-layout -->
+  </div><!-- /container -->
+
+  <!-- â”€â”€ Footer â”€â”€ -->
+  <footer class="footer" style="margin-top:0">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">Jan<span>.</span></div>
+          <p class="footer-desc">India's largest B2B wholesale marketplace connecting small shops with verified wholesale warehouses.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" id="f-social-fb">f</a>
+            <a href="#" class="social-link" id="f-social-ig">ig</a>
+            <a href="#" class="social-link" id="f-social-wa">W</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Shop</div>
+          <div class="footer-links">
+            <a href="products.html" class="footer-link">All Products</a>
+            <a href="index.html#categories" class="footer-link">Categories</a>
+            <a href="index.html#warehouses" class="footer-link">Warehouses</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Account</div>
+          <div class="footer-links">
+            <a href="cart.html" class="footer-link">My Cart</a>
+            <a href="#" class="footer-link">My Orders</a>
+            <a href="#" class="footer-link">Track Order</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Help</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Help Center</a>
+            <a href="#" class="footer-link">Return Policy</a>
+            <a href="#" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">Â© 2026 <span>Jan</span> Wholesale Marketplace Pvt. Ltd.</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top-btn">â†‘</button>
+
+<!-- Auth Modal -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-header">
+      <div class="auth-modal-logo">Jan<span>.</span></div>
+      <div class="auth-modal-tagline">India's Wholesale Marketplace</div>
+      <button class="auth-close" onclick="closeAuthModal()" aria-label="Close">âœ•</button>
+      <div class="auth-tabs" style="margin-top:16px">
+        <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')" id="tab-login">Sign In</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')" id="tab-register">Register Free</button>
+      </div>
+    </div>
+    <div class="auth-modal-body">
+      <form class="auth-form" id="login-form-section" style="display:flex;flex-direction:column;gap:14px">
+        <div class="form-group">
+          <label class="form-label" for="login-mobile">Mobile Number / Email</label>
+          <input class="auth-input" type="text" id="login-mobile" placeholder="Enter mobile or email" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Password</label>
+          <input class="auth-input" type="password" id="login-pass" placeholder="Enter password" required />
+        </div>
+        <button type="submit" class="auth-submit-btn" id="login-submit-btn" onclick="handleLogin(event)">Sign In to Jan</button>
+        <div class="auth-switch">New to Jan? <button type="button" onclick="switchAuthTab('register')">Create free account â†’</button></div>
+      </form>
+      <form class="auth-form" id="register-form-section" style="display:none;flex-direction:column;gap:14px">
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Your Full Name *</label>
+          <input class="auth-input" type="text" id="reg-name" placeholder="e.g. Ramesh Kumar" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-shop">Shop Name *</label>
+          <input class="auth-input" type="text" id="reg-shop" placeholder="e.g. Raju General Store" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-mobile">Mobile * (10 digits)</label>
+          <input class="auth-input" type="tel" id="reg-mobile" placeholder="Mobile number" maxlength="10" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-city">City</label>
+          <input class="auth-input" type="text" id="reg-city" placeholder="Your city" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-pass">Password * (min 6 chars)</label>
+          <input class="auth-input" type="password" id="reg-pass" placeholder="Create a strong password" required minlength="6" />
+        </div>
+        <button type="submit" class="auth-submit-btn" id="register-submit-btn" onclick="handleRegister(event)">ðŸŽ‰ Create Free Account</button>
+        <div class="auth-switch">Already have an account? <button type="button" onclick="switchAuthTab('login')">Sign In â†’</button></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Render products grid dynamically using the PRODUCTS array
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('products-full-grid');
+      if (grid) {
+        grid.innerHTML = PRODUCTS.map(p => buildAmzCard(p)).join('');
+        document.getElementById('product-count').textContent = PRODUCTS.length;
+      }
+
+      // Auto-filter from URL
+      const urlCat = new URLSearchParams(window.location.search).get('cat');
+      if (urlCat) setTimeout(() => filterByCategory(urlCat), 150);
+    });
+
+    // Live search (works on .amz-card)
+    function liveSearch(query) {
+      homepageSearch(query);
+      const visible = [...document.querySelectorAll('.amz-card')].filter(c => c.style.display !== 'none').length;
+      document.getElementById('product-count').textContent = visible;
+    }
+
+    function removeFilter(el) {
+      el.parentElement.remove();
+    }
+
+    function resetPrice() {
+      const r = document.getElementById('price-range');
+      if (r) { r.value = 5000; document.getElementById('price-max-label').textContent = 'â‚¹5,000'; }
+    }
+
+    let currentPage = 1;
+    function setPage(n) {
+      currentPage = n;
+      document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('page-' + n)?.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToast('ðŸ“„ Page ' + n + ' loaded');
+    }
+    function changePage(d) {
+      setPage(Math.max(1, Math.min(12, currentPage + d)));
+    }
+  </script>
+</body>
+</html>

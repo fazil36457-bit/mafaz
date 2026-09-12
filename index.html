@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jan — India's Wholesale Marketplace for Small Shops</title>
+  <meta name="description" content="Jan connects small retail shops with hundreds of wholesale warehouses. Order groceries, FMCG, beverages & more at wholesale prices with doorstep delivery." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/amazon.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════ -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo" id="brand-logo">
+      Jan<div class="logo-dot"></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html"   class="nav-link active" id="nav-home">Home</a>
+      <a href="products.html" class="nav-link" id="nav-products">Products</a>
+      <a href="purchases.html" class="nav-link" id="nav-orders">My Orders</a>
+      <a href="about.html"   class="nav-link" id="nav-about">How It Works</a>
+    </div>
+
+    <!-- Global search bar in nav -->
+    <div class="nav-search" style="width:300px">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search products, brands…" id="nav-search-input"
+        oninput="homepageSearch(this.value)" />
+    </div>
+
+    <div class="nav-actions">
+      <!-- User widget (guest or logged in) -->
+      <div id="nav-user-widget">
+        <button class="btn btn-primary btn-sm" onclick="openAuthModal('login')" id="nav-signin-btn">Sign In</button>
+      </div>
+      <a href="cart.html" class="nav-cart-btn" id="nav-cart-btn" aria-label="Cart">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html"     class="nav-link">Home</a>
+  <a href="products.html"  class="nav-link">Products</a>
+  <a href="purchases.html" class="nav-link">My Orders</a>
+  <a href="about.html"     class="nav-link">How It Works</a>
+  <a href="cart.html"      class="nav-link">Cart</a>
+  <div style="margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:8px">
+    <button class="btn btn-primary btn-full" onclick="openAuthModal('login');mobileNav?.classList.remove('open')" id="mnav-signin">Sign In / Register</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN AMAZON-STYLE LAYOUT
+══════════════════════════════════════════ -->
+<div class="homepage-layout">
+
+  <!-- ── LEFT SIDEBAR ── -->
+  <aside class="home-sidebar" id="home-sidebar">
+
+    <!-- Profile / Auth Widget -->
+    <div class="sidebar-profile">
+      <div id="sidebar-profile">
+        <!-- Rendered by JS -->
+        <div class="profile-guest">
+          <div class="profile-greeting">Welcome to Jan</div>
+          <div style="color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:8px">Sign in for the best wholesale prices</div>
+          <div class="sidebar-auth-btns">
+            <button class="sidebar-btn sidebar-btn-primary" onclick="openAuthModal('login')" id="sidebar-login-btn">🔐 Sign In</button>
+            <button class="sidebar-btn sidebar-btn-secondary" onclick="openAuthModal('register')" id="sidebar-register-btn">✨ Register Free</button>
+          </div>
+          <div class="auth-benefits" style="margin-top:10px">
+            <div class="auth-benefit"><span class="icon">✓</span> ₹500 credit on first order</div>
+            <div class="auth-benefit"><span class="icon">✓</span> 30-day buy now, pay later</div>
+            <div class="auth-benefit"><span class="icon">✓</span> Track your orders easily</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="sidebar-nav-section">
+      <div class="sidebar-nav-label">Categories</div>
+      <a href="#sec-grocery"       class="sidebar-nav-item" id="snav-grocery"><span class="icon">🛒</span> Grocery</a>
+      <a href="#sec-beverages"     class="sidebar-nav-item" id="snav-bev"><span class="icon">🧃</span> Beverages</a>
+      <a href="#sec-fmcg"          class="sidebar-nav-item" id="snav-fmcg"><span class="icon">🧴</span> FMCG</a>
+      <a href="#sec-snacks"        class="sidebar-nav-item" id="snav-snacks"><span class="icon">🍿</span> Snacks</a>
+      <a href="#sec-cleaning"      class="sidebar-nav-item" id="snav-clean"><span class="icon">🧹</span> Cleaning</a>
+      <a href="#sec-dairy"         class="sidebar-nav-item" id="snav-dairy"><span class="icon">🥛</span> Dairy</a>
+      <a href="#sec-personal-care" class="sidebar-nav-item" id="snav-pc"><span class="icon">💆</span> Personal Care</a>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="sidebar-nav-section">
+      <div class="sidebar-nav-label">Quick Links</div>
+      <a href="purchases.html"       class="sidebar-nav-item" id="snav-orders"><span class="icon">📦</span> My Orders</a>
+      <a href="cart.html"            class="sidebar-nav-item" id="snav-cart"><span class="icon">🛒</span> My Cart</a>
+      <a href="about.html#partner"   class="sidebar-nav-item" id="snav-partner"><span class="icon">🏭</span> List Warehouse</a>
+      <a href="about.html"           class="sidebar-nav-item" id="snav-how"><span class="icon">❓</span> How It Works</a>
+    </div>
+
+    <!-- Trust Badge at bottom -->
+    <div style="padding:16px;margin-top:auto;border-top:1px solid rgba(255,255,255,0.08)">
+      <div style="font-size:11px;color:rgba(255,255,255,0.3);text-align:center;line-height:1.6">
+        🔒 Secure Payments · GST Invoice · 7-Day Returns<br>
+        <span style="color:var(--amber)">500+</span> Verified Warehouses
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="home-main" id="home-main">
+    <div style="padding:16px">
+
+      <!-- Search Bar -->
+      <div class="home-search-bar">
+        <select id="search-category-select">
+          <option value="all">All Categories</option>
+          <option value="grocery">Grocery</option>
+          <option value="beverages">Beverages</option>
+          <option value="fmcg">FMCG</option>
+          <option value="snacks">Snacks</option>
+          <option value="cleaning">Cleaning</option>
+          <option value="dairy">Dairy</option>
+          <option value="personal-care">Personal Care</option>
+        </select>
+        <input type="text" id="home-search" placeholder="Search for atta, soap, chips, shampoo…" oninput="homepageSearch(this.value)" />
+        <button class="home-search-btn" onclick="homepageSearch(document.getElementById('home-search').value)" aria-label="Search">
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+
+      <!-- Category Pills -->
+      <div class="cat-pills" id="cat-pills">
+        <a class="cat-pill active" id="pill-all" data-cat="all" onclick="filterHomeSection('all');return false" href="#">All</a>
+        <a class="cat-pill" id="pill-grocery" data-cat="grocery" href="#sec-grocery">🛒 Grocery</a>
+        <a class="cat-pill" id="pill-bev" data-cat="beverages" href="#sec-beverages">🧃 Beverages</a>
+        <a class="cat-pill" id="pill-fmcg" data-cat="fmcg" href="#sec-fmcg">🧴 FMCG</a>
+        <a class="cat-pill" id="pill-snacks" data-cat="snacks" href="#sec-snacks">🍿 Snacks</a>
+        <a class="cat-pill" id="pill-cleaning" data-cat="cleaning" href="#sec-cleaning">🧹 Cleaning</a>
+        <a class="cat-pill" id="pill-dairy" data-cat="dairy" href="#sec-dairy">🥛 Dairy</a>
+        <a class="cat-pill" id="pill-pc" data-cat="personal-care" href="#sec-personal-care">💆 Personal Care</a>
+      </div>
+
+      <!-- Hero Banner Slider -->
+      <div class="hero-banner-slider">
+        <div class="hero-slides" id="hero-slides">
+          <!-- Rendered by JS -->
+        </div>
+        <button class="slider-prev" onclick="goSlide(slideIndex-1)" aria-label="Previous">‹</button>
+        <button class="slider-next" onclick="goSlide(slideIndex+1)" aria-label="Next">›</button>
+        <div class="slider-dots" id="slider-dots"></div>
+      </div>
+
+      <!-- ── BUY AGAIN / Previously Purchased ── -->
+      <div class="home-section" id="buy-again-section">
+        <div class="home-section-header">
+          <div class="home-section-title">🔄 Buy Again</div>
+          <a href="purchases.html" class="home-section-link" id="view-all-orders-link">View all orders →</a>
+        </div>
+        <div class="buy-again-scroll" id="buy-again-container">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- ── FLASH DEALS ── -->
+      <div class="home-section" style="background:linear-gradient(135deg,#0D1B2A,#1E3150);border:none;position:relative;overflow:hidden" id="flash-deals">
+        <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(244,162,37,0.15) 0%,transparent 70%)"></div>
+        <div class="home-section-header" style="position:relative;z-index:1">
+          <div class="home-section-title" style="color:#fff">⚡ Flash Deals — Today Only</div>
+          <a href="products.html" class="home-section-link" style="color:var(--amber)" id="flash-deals-link">See all deals →</a>
+        </div>
+        <div class="amz-products-grid" style="position:relative;z-index:1" id="flash-deals-grid">
+          <!-- Rendered below by inline script -->
+        </div>
+      </div>
+
+      <!-- ── CATEGORY SECTIONS (rendered by JS) ── -->
+      <div id="category-sections">
+        <!-- Rendered by main.js renderHomepageProducts() -->
+      </div>
+
+      <!-- ── STATS STRIP ── -->
+      <div style="background:var(--navy);border-radius:var(--radius-lg);padding:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:16px" id="stats-strip">
+        <div class="stat-item fade-in" data-count="500" data-suffix="+" style="padding:24px 16px">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Warehouses</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-1" data-count="50000" data-suffix="+" style="padding:24px 16px">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-2" data-count="250000" data-suffix="+" style="padding:24px 16px">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Shop Owners</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-3" data-count="120" data-suffix=" Cities" style="padding:24px 16px">
+          <div class="stat-number"><span class="num">0</span><span class="suffix"> Cities</span></div>
+          <div class="stat-label">Pan-India</div>
+        </div>
+      </div>
+
+      <!-- ── HOW IT WORKS COMPACT ── -->
+      <div class="home-section">
+        <div class="home-section-header">
+          <div class="home-section-title">🚀 How Jan Works</div>
+          <a href="about.html" class="home-section-link" id="how-link">Learn more →</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="text-align:center;padding:20px 16px">
+            <div style="font-size:40px;margin-bottom:12px">🔍</div>
+            <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Browse & Order</div>
+            <div style="font-size:13px;color:var(--grey-500);line-height:1.6">Search 50,000+ products, set qty (min 10) and add to cart in seconds.</div>
+          </div>
+          <div style="text-align:center;padding:20px 16px;border-left:1px solid var(--grey-100);border-right:1px solid var(--grey-100)">
+            <div style="font-size:40px;margin-bottom:12px">🏭</div>
+            <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Jan Sources It</div>
+            <div style="font-size:13px;color:var(--grey-500);line-height:1.6">We route your order to the best nearby verified warehouse partner.</div>
+          </div>
+          <div style="text-align:center;padding:20px 16px">
+            <div style="font-size:40px;margin-bottom:12px">🚚</div>
+            <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Delivered to Shop</div>
+            <div style="font-size:13px;color:var(--grey-500);line-height:1.6">Your goods arrive at your doorstep within 24-48 hours.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PARTNER CTA ── -->
+      <div style="background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:var(--radius-lg);padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:16px">
+        <div>
+          <div style="font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--navy)">Own a Wholesale Warehouse?</div>
+          <div style="font-size:14px;color:rgba(13,27,42,0.65);margin-top:4px">List your inventory on Jan and reach thousands of shops in your city.</div>
+        </div>
+        <a href="about.html#partner" class="btn btn-dark" id="partner-cta-btn">Partner With Us →</a>
+      </div>
+
+      <!-- Footer -->
+      <footer style="padding:20px 0 8px">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--grey-100)">
+          <div style="font-family:var(--font-head);font-size:20px;font-weight:900;color:var(--navy)">Jan<span style="color:var(--amber)">.</span></div>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <a href="about.html" style="font-size:13px;color:var(--grey-500)">About</a>
+            <a href="about.html#partner" style="font-size:13px;color:var(--grey-500)">Partner</a>
+            <a href="#" style="font-size:13px;color:var(--grey-500)">Privacy</a>
+            <a href="#" style="font-size:13px;color:var(--grey-500)">Help</a>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--grey-500);text-align:center;padding-top:12px">
+          © 2026 Jan Wholesale Marketplace Pvt. Ltd. · Made with ❤️ for India's Shop Owners
+        </div>
+      </footer>
+
+    </div><!-- /padding -->
+  </main>
+</div><!-- /homepage-layout -->
+
+<button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+<!-- ══════════════════════════════════════════
+     AUTH MODAL
+══════════════════════════════════════════ -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-header">
+      <div class="auth-modal-logo">Jan<span>.</span></div>
+      <div class="auth-modal-tagline">India's Wholesale Marketplace</div>
+      <button class="auth-close" onclick="closeAuthModal()" aria-label="Close">✕</button>
+      <div class="auth-tabs" style="margin-top:16px">
+        <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')" id="tab-login">Sign In</button>
+        <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')" id="tab-register">Register Free</button>
+      </div>
+    </div>
+    <div class="auth-modal-body">
+
+      <!-- LOGIN -->
+      <form class="auth-form" id="login-form-section" style="display:flex;flex-direction:column;gap:14px">
+        <div class="form-group">
+          <label class="form-label" for="login-mobile">Mobile Number / Email</label>
+          <input class="auth-input" type="text" id="login-mobile" placeholder="Enter mobile or email" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-pass">Password</label>
+          <input class="auth-input" type="password" id="login-pass" placeholder="Enter password" required />
+        </div>
+        <div style="text-align:right"><button type="button" style="background:none;border:none;font-size:12px;color:var(--amber-dark);cursor:pointer;font-family:var(--font-body)">Forgot Password?</button></div>
+        <button type="submit" class="auth-submit-btn" id="login-submit-btn" onclick="handleLogin(event)">Sign In to Jan</button>
+        <div class="auth-divider">or</div>
+        <div class="auth-benefits">
+          <div class="auth-benefit"><span class="icon">✓</span> ₹500 credit on first order</div>
+          <div class="auth-benefit"><span class="icon">✓</span> Track all your wholesale orders</div>
+          <div class="auth-benefit"><span class="icon">✓</span> 30-day Buy Now, Pay Later</div>
+        </div>
+        <div class="auth-switch">New to Jan? <button type="button" onclick="switchAuthTab('register')">Create free account →</button></div>
+      </form>
+
+      <!-- REGISTER -->
+      <form class="auth-form" id="register-form-section" style="display:none;flex-direction:column;gap:14px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label" for="reg-name">Your Full Name *</label>
+            <input class="auth-input" type="text" id="reg-name" placeholder="e.g. Ramesh Kumar" required />
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label" for="reg-shop">Shop Name *</label>
+            <input class="auth-input" type="text" id="reg-shop" placeholder="e.g. Raju General Store" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-mobile">Mobile *</label>
+            <input class="auth-input" type="tel" id="reg-mobile" placeholder="10-digit mobile" maxlength="10" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-city">City *</label>
+            <input class="auth-input" type="text" id="reg-city" placeholder="Your city" required />
+          </div>
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label" for="reg-pass">Password * (min 6 chars)</label>
+            <input class="auth-input" type="password" id="reg-pass" placeholder="Create a strong password" required minlength="6" />
+          </div>
+        </div>
+        <button type="submit" class="auth-submit-btn" id="register-submit-btn" onclick="handleRegister(event)">🎉 Create Free Account</button>
+        <div class="auth-switch">Already have an account? <button type="button" onclick="switchAuthTab('login')">Sign In →</button></div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  // Flash deals section (top 4 discounted products)
+  document.addEventListener('DOMContentLoaded', () => {
+    const flashGrid = document.getElementById('flash-deals-grid');
+    if (flashGrid) {
+      const deals = PRODUCTS.filter(p => p.oldPrice > p.price).slice(0, 4);
+      flashGrid.innerHTML = deals.map(p => buildAmzCard(p)).join('');
+    }
+
+    // Category search filter integration
+    document.getElementById('search-category-select')?.addEventListener('change', function() {
+      const cat = this.value;
+      if (cat !== 'all') filterByCategory(cat);
+    });
+  });
+
+  function filterHomeSection(cat) {
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+    const sections = document.querySelectorAll('.home-section[id^="sec-"]');
+    sections.forEach(s => {
+      s.style.display = (cat === 'all' || s.id === 'sec-' + cat) ? '' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

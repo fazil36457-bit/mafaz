@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works & About — Jan Wholesale Marketplace</title>
+  <meta name="description" content="Learn how Jan connects small shops with wholesale warehouses across India. Partner with us as a warehouse or start shopping as a retailer." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar transparent" id="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-logo" id="brand-logo">Jan<div class="logo-dot"></div></a>
+      <div class="nav-links">
+        <a href="index.html"    class="nav-link" id="nav-home">Home</a>
+        <a href="products.html" class="nav-link" id="nav-products">Products</a>
+        <a href="about.html"    class="nav-link active" id="nav-about">How It Works</a>
+        <a href="about.html#warehouses" class="nav-link" id="nav-wh">Warehouses</a>
+        <a href="about.html#partner" class="nav-link" id="nav-partner">Partner With Us</a>
+      </div>
+      <div class="nav-search">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search products..." id="nav-search-input" />
+      </div>
+      <div class="nav-actions">
+        <a href="cart.html" class="nav-cart-btn" id="nav-cart-btn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="products.html" class="btn btn-primary btn-sm" id="nav-shop-btn">Shop Now</a>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html"    class="nav-link">Home</a>
+    <a href="products.html" class="nav-link">Products</a>
+    <a href="about.html"    class="nav-link">How It Works</a>
+    <a href="cart.html"     class="nav-link">My Cart</a>
+  </div>
+
+  <!-- ── About Hero ── -->
+  <section class="about-hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow" style="top:-100px;right:-100px;width:500px;height:500px"></div>
+    <div class="container" style="position:relative;z-index:1;text-align:center">
+      <div class="hero-tag" style="display:inline-flex;margin-bottom:24px">
+        <div class="dot"></div> Our Mission
+      </div>
+      <h1 class="hero-title" style="margin-bottom:24px">
+        Empowering India's<br>
+        <span class="highlight">Small Shop Owners</span>
+      </h1>
+      <p class="hero-desc" style="margin:0 auto 40px;max-width:600px;text-align:center">
+        Jan was built to give every kirana, pan shop, and general store access to the same wholesale prices and network that large supermarkets enjoy — at the tap of a screen.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="products.html" class="btn btn-primary btn-lg" id="about-shop-btn">Start Shopping</a>
+        <a href="#partner" class="btn btn-secondary btn-lg" id="about-partner-btn">List Your Warehouse</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Mission ── -->
+  <section class="section" style="background:#fff">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="fade-in">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">Built for Bharat's Shop Owners</h2>
+          <p style="font-size:16px;color:var(--grey-500);line-height:1.8;margin-bottom:20px">
+            India has over <strong>12 million</strong> small retail shops — kirana stores, general stores, pan shops — that collectively power the country's daily commerce. Yet, most of them still buy goods by physically travelling to crowded wholesale markets, often paying more and receiving less.
+          </p>
+          <p style="font-size:16px;color:var(--grey-500);line-height:1.8;margin-bottom:32px">
+            <strong>Jan</strong> changes that. We aggregate hundreds of verified wholesale warehouses into a single digital platform. Shop owners browse, order, and receive deliveries — all without leaving their store. Warehouses get a new digital sales channel with zero setup hassle.
+          </p>
+          <div style="display:flex;gap:32px;flex-wrap:wrap">
+            <div>
+              <div style="font-family:var(--font-head);font-size:28px;font-weight:900;color:var(--navy)">2018</div>
+              <div style="font-size:13px;color:var(--grey-500)">Founded</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-head);font-size:28px;font-weight:900;color:var(--navy)">500+</div>
+              <div style="font-size:13px;color:var(--grey-500)">Warehouses</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-head);font-size:28px;font-weight:900;color:var(--navy)">₹500Cr+</div>
+              <div style="font-size:13px;color:var(--grey-500)">GMV Processed</div>
+            </div>
+          </div>
+        </div>
+        <div class="mission-img fade-in fade-in-delay-2">
+          🏪
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works (Detailed) ── -->
+  <section class="section" style="background:var(--grey-50)" id="how-it-works">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="section-label">The Process</div>
+        <h2 class="section-title">How Jan Works</h2>
+        <p class="section-sub">A transparent, end-to-end wholesale ordering process designed for busy shopkeepers.</p>
+      </div>
+
+      <!-- For Shop Owners -->
+      <div style="margin-top:56px">
+        <h3 style="font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:32px;padding-left:16px;border-left:3px solid var(--amber)">
+          For Shop Owners
+        </h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+          <div class="step-card fade-in" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">📱</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">1. Register Free</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Sign up in 2 minutes with your shop name, address and mobile number. No paperwork.</p>
+          </div>
+          <div class="step-card fade-in fade-in-delay-1" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">🔍</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">2. Browse & Add to Cart</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Search 50,000+ products, compare prices across warehouses, and add bulk quantities to cart.</p>
+          </div>
+          <div class="step-card fade-in fade-in-delay-2" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">💳</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">3. Pay Securely</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Pay via UPI, card, net banking, or use Jan Business Credit — buy now, pay in 30 days.</p>
+          </div>
+          <div class="step-card fade-in fade-in-delay-3" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">🚚</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">4. Receive at Your Door</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Jan routes your order to the nearest warehouse. Goods arrive at your shop within 24–48 hours.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- For Warehouses -->
+      <div style="margin-top:56px">
+        <h3 style="font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:32px;padding-left:16px;border-left:3px solid var(--amber)">
+          For Warehouse Partners
+        </h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px">
+          <div class="step-card fade-in" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">📋</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">1. List Your Inventory</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Upload your product catalog via Excel or API. We verify and go live within 24 hours.</p>
+          </div>
+          <div class="step-card fade-in fade-in-delay-1" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">📊</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">2. Receive Orders</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Get digital orders from thousands of shop owners in your area — no sales team needed.</p>
+          </div>
+          <div class="step-card fade-in fade-in-delay-2" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">📦</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">3. Pack & Dispatch</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Jan's logistics team or your own delivery fleet handles pickup and last-mile delivery.</p>
+          </div>
+          <div class="step-card fade-in fade-in-delay-3" style="padding:28px 24px;text-align:left">
+            <div style="font-size:36px;margin-bottom:16px">💰</div>
+            <h4 style="font-family:var(--font-head);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px">4. Get Paid Instantly</h4>
+            <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Payments are settled within T+1 days directly to your bank account. Zero collection hassle.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Core Values ── -->
+  <section class="section" style="background:#fff">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="section-label">Our Values</div>
+        <h2 class="section-title">What We Stand For</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card fade-in fade-in-delay-1">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">Fairness</div>
+          <div class="value-desc">Every shop — big or small — gets the same wholesale prices. No hidden fees, no favoritism.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-2">
+          <div class="value-icon">⚡</div>
+          <div class="value-title">Speed</div>
+          <div class="value-desc">We know your shop can't wait. We promise 24–48 hour delivery to keep your shelves stocked.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-3">
+          <div class="value-icon">🔍</div>
+          <div class="value-title">Transparency</div>
+          <div class="value-desc">Clear pricing, visible sourcing warehouse, real-time tracking — no surprises ever.</div>
+        </div>
+        <div class="value-card fade-in">
+          <div class="value-icon">🌱</div>
+          <div class="value-title">Empowerment</div>
+          <div class="value-desc">We help small shops compete. Access to Business Credit lets you grow without cash flow worries.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-1">
+          <div class="value-icon">🔒</div>
+          <div class="value-title">Trust & Safety</div>
+          <div class="value-desc">All warehouses are KYC-verified. All products are quality-checked. Your money is always protected.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-2">
+          <div class="value-icon">🇮🇳</div>
+          <div class="value-title">Made for India</div>
+          <div class="value-desc">Built for Indian shopkeepers, in Indian languages, with India-first payment options like UPI and COD.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats ── -->
+  <section class="stats-section section-sm" id="warehouses">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-in" data-count="500" data-suffix="+">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Verified Warehouses</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-1" data-count="120" data-suffix="+">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Cities Served</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-2" data-count="98" data-suffix="%">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">%</span></div>
+          <div class="stat-label">On-time Delivery</div>
+        </div>
+        <div class="stat-item fade-in fade-in-delay-3" data-count="4" data-suffix=".9 ⭐">
+          <div class="stat-number"><span class="num">0</span><span class="suffix">.9 ⭐</span></div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Partner CTA ── -->
+  <section class="section" style="background:var(--grey-50)" id="partner">
+    <div class="container">
+      <div style="background:var(--navy);border-radius:32px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-80px;right:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(244,162,37,0.1) 0%,transparent 70%)"></div>
+        <div style="position:relative;z-index:1" class="fade-in">
+          <div class="section-label">Warehouse Partners</div>
+          <h2 class="section-title section-title-white" style="font-size:clamp(24px,3vw,36px)">List Your Warehouse on Jan</h2>
+          <p style="color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:24px;font-size:15px">
+            Reach thousands of small shops in your city without any marketing spend. Jan handles orders, payments, and logistics end-to-end.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.65)">
+              <span style="color:var(--amber);font-weight:700">✓</span> Zero listing fees
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.65)">
+              <span style="color:var(--amber);font-weight:700">✓</span> T+1 day payment settlement
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.65)">
+              <span style="color:var(--amber);font-weight:700">✓</span> Real-time order dashboard
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.65)">
+              <span style="color:var(--amber);font-weight:700">✓</span> Dedicated account manager
+            </div>
+          </div>
+          <a href="#partner-form" class="btn btn-primary btn-lg" id="partner-apply-btn">Apply to Partner</a>
+        </div>
+
+        <!-- Partner Form -->
+        <div style="position:relative;z-index:1" class="fade-in fade-in-delay-2">
+          <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:32px" id="partner-form">
+            <h3 style="font-family:var(--font-head);font-size:20px;font-weight:700;color:#fff;margin-bottom:24px">Register Your Warehouse</h3>
+            <form id="partner-signup-form" style="display:flex;flex-direction:column;gap:14px" onsubmit="partnerSubmit(event)">
+              <input class="form-input" type="text" id="pf-name" placeholder="Warehouse / Business Name *" required style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:#fff" />
+              <input class="form-input" type="tel" id="pf-phone" placeholder="Mobile Number *" required maxlength="10" style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:#fff" />
+              <input class="form-input" type="email" id="pf-email" placeholder="Business Email" style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:#fff" />
+              <input class="form-input" type="text" id="pf-city" placeholder="City *" required style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:#fff" />
+              <select class="form-select" id="pf-type" style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7)">
+                <option value="">Category (Grocery / FMCG / Mixed…)</option>
+                <option>Grocery & Staples</option>
+                <option>FMCG & Personal Care</option>
+                <option>Beverages</option>
+                <option>Mixed / General</option>
+                <option>Stationery</option>
+                <option>Electronics</option>
+              </select>
+              <input class="form-input" type="text" id="pf-gst" placeholder="GSTIN (optional)" style="background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);color:#fff" />
+              <button type="submit" class="btn btn-primary btn-full" id="pf-submit-btn">
+                🚀 Submit Application
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="section" style="background:#fff">
+    <div class="container">
+      <div class="text-center fade-in" style="margin-bottom:48px">
+        <div class="section-label">Got Questions?</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <div class="step-card fade-in" style="padding:24px 28px;text-align:left">
+          <h4 style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">What is the minimum order value on Jan?</h4>
+          <p style="font-size:14px;color:var(--grey-500);line-height:1.7">There is no minimum order value, but each product has a minimum order quantity (MOQ) set by the warehouse. You can combine multiple products to reach any order size.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-1" style="padding:24px 28px;text-align:left">
+          <h4 style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">How long does delivery take?</h4>
+          <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Most orders are delivered within 24–48 hours depending on your city and the warehouse's capacity. Same-day delivery is available in select cities.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-2" style="padding:24px 28px;text-align:left">
+          <h4 style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">Can I get a GST invoice?</h4>
+          <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Yes, Jan provides a full GST invoice for every order. You can download it from your order history or receive it via email/WhatsApp automatically.</p>
+        </div>
+        <div class="step-card fade-in fade-in-delay-3" style="padding:24px 28px;text-align:left">
+          <h4 style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">What is Jan Business Credit?</h4>
+          <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Jan Business Credit is a 30-day buy-now-pay-later facility available to verified shop owners. Purchase goods today and pay when you've sold them — no interest for 30 days.</p>
+        </div>
+        <div class="step-card fade-in" style="padding:24px 28px;text-align:left">
+          <h4 style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px">Is Jan available in my city?</h4>
+          <p style="font-size:14px;color:var(--grey-500);line-height:1.7">Jan is currently available in 120+ cities across India. We are expanding rapidly. Enter your PIN code on checkout to confirm serviceability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2 class="cta-title">Start Saving on<br>Every Wholesale Order</h2>
+          <p class="cta-sub">Register free today and get ₹500 credit on your first order.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="products.html" class="btn btn-dark btn-lg" id="cta-shop-btn">🛒 Shop Now</a>
+          <a href="#partner-form" class="btn btn-secondary btn-lg" id="cta-wh-btn" style="color:var(--navy);border-color:var(--navy)">Warehouse? Join Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">Jan<span>.</span></div>
+          <p class="footer-desc">India's largest B2B wholesale marketplace connecting small shops with verified wholesale warehouses.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" id="a-fb">f</a>
+            <a href="#" class="social-link" id="a-tw">t</a>
+            <a href="#" class="social-link" id="a-ig">ig</a>
+            <a href="#" class="social-link" id="a-wa">W</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <div class="footer-links">
+            <a href="products.html" class="footer-link">Browse Products</a>
+            <a href="about.html" class="footer-link">How It Works</a>
+            <a href="cart.html" class="footer-link">My Cart</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Categories</div>
+          <div class="footer-links">
+            <a href="products.html?cat=grocery" class="footer-link">Grocery</a>
+            <a href="products.html?cat=fmcg" class="footer-link">FMCG</a>
+            <a href="products.html?cat=beverages" class="footer-link">Beverages</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Support</div>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Help Center</a>
+            <a href="#" class="footer-link">Contact Us</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 <span>Jan</span> Wholesale Marketplace Pvt. Ltd. All rights reserved.</div>
+        <div class="footer-copy">Made with ❤️ for India's <span>Shop Owners</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scroll-top-btn">↑</button>
+
+  <script src="js/main.js"></script>
+  <script>
+    function partnerSubmit(e) {
+      e.preventDefault();
+      showToast('🎉 Application submitted! Our team will contact you within 24 hours.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

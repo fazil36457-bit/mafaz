@@ -6,20 +6,29 @@
 
 /* ── CSS Custom Properties ── */
 :root {
-  --navy:       #0D1B2A;
-  --navy-mid:   #162236;
-  --navy-light: #1E3150;
-  --amber:      #F4A225;
-  --amber-dark: #D98B10;
-  --amber-glow: rgba(244, 162, 37, 0.18);
+  --dark:       #0F0A1E;
+  --dark-mid:   #1A1133;
+  --dark-light: #2D1B69;
+  --violet:     #7C3AED;
+  --violet-dark:#5B21B6;
+  --violet-soft:#9F67FA;
+  --violet-glow:rgba(124,58,237,0.18);
   --white:      #FFFFFF;
-  --grey-50:    #F5F7FA;
-  --grey-100:   #EAEEf4;
-  --grey-300:   #C2CBDA;
-  --grey-500:   #8B96A8;
-  --grey-700:   #4A5568;
+  --grey-50:    #F7F5FF;
+  --grey-100:   #EDE9FF;
+  --grey-300:   #C4B5FD;
+  --grey-500:   #8B7EC8;
+  --grey-700:   #4C3F8A;
   --success:    #22C55E;
   --error:      #EF4444;
+
+  /* Aliases so existing code still works */
+  --navy:       var(--dark);
+  --navy-mid:   var(--dark-mid);
+  --navy-light: var(--dark-light);
+  --amber:      var(--violet);
+  --amber-dark: var(--violet-dark);
+  --amber-glow: var(--violet-glow);
 
   --font-head: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -30,10 +39,11 @@
   --radius-xl:  32px;
   --radius-full: 9999px;
 
-  --shadow-sm: 0 2px 8px rgba(13,27,42,0.12);
-  --shadow-md: 0 8px 32px rgba(13,27,42,0.18);
-  --shadow-lg: 0 20px 60px rgba(13,27,42,0.28);
-  --shadow-amber: 0 0 30px rgba(244,162,37,0.25);
+  --shadow-sm:     0 2px 8px rgba(15,10,30,0.14);
+  --shadow-md:     0 8px 32px rgba(15,10,30,0.22);
+  --shadow-lg:     0 20px 60px rgba(15,10,30,0.32);
+  --shadow-amber:  0 0 30px rgba(124,58,237,0.28);
+  --shadow-violet: 0 0 30px rgba(124,58,237,0.28);
 
   --transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
   --transition-slow: all 0.5s cubic-bezier(0.4,0,0.2,1);
@@ -46,10 +56,13 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--font-body);
+  /* background handled by amazon.css — professional gradient */
   background: var(--grey-50);
   color: var(--navy);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -321,6 +334,44 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
   transition: var(--transition);
 }
 .nav-cart-btn:hover { background: rgba(255,255,255,0.15); }
+
+/* Cart button placed inside nav-links — pill variant */
+.nav-cart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  border-radius: var(--radius-full);
+  background: rgba(244,162,37,0.12);
+  border: 1px solid rgba(244,162,37,0.25);
+  transition: var(--transition);
+  position: relative;
+  white-space: nowrap;
+}
+.nav-cart-pill:hover {
+  background: rgba(244,162,37,0.2);
+  color: var(--amber);
+  border-color: rgba(244,162,37,0.5);
+}
+.nav-cart-pill .cart-badge {
+  position: static;
+  margin-left: 2px;
+  background: var(--amber);
+  color: var(--navy);
+  border-radius: 99px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 6px;
+  min-width: 18px; height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+}
 .cart-badge {
   position: absolute;
   top: -4px; right: -4px;
@@ -1985,8 +2036,19 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
 }
 
 @media (max-width: 768px) {
+  /* Nav */
   .nav-links, .nav-search { display: none; }
   .hamburger { display: flex; }
+
+  /* Navbar height reduction */
+  .navbar-inner { height: 60px; gap: 16px; }
+  .nav-logo { font-size: 22px; }
+
+  /* Page header */
+  .page-header { padding: 90px 0 36px; }
+  .page-title { font-size: clamp(22px, 5vw, 32px); }
+
+  /* Grids */
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .categories-grid { grid-template-columns: repeat(2, 1fr); }
   .warehouse-grid { grid-template-columns: 1fr; }
@@ -1997,12 +2059,59 @@ button { cursor: pointer; border: none; outline: none; font-family: var(--font-b
   .hero-stats { gap: 24px; }
   .products-full-grid { grid-template-columns: repeat(2, 1fr); }
   .cta-inner { flex-direction: column; text-align: center; }
+
+  /* Cart layout: full width stack */
+  .cart-layout {
+    grid-template-columns: 1fr;
+    padding: 20px 0 40px;
+    gap: 16px;
+  }
+  .cart-item { flex-wrap: wrap; gap: 12px; }
+  .cart-item-qty { flex-direction: row; }
+  .cart-item-price { text-align: left; }
+  .cart-item-remove { margin-left: auto; }
+
+  /* Products layout sidebar hidden on mobile */
+  .products-layout { grid-template-columns: 1fr; gap: 16px; }
+  .sidebar { position: static !important; }
+  .products-full-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Purchase history */
+  .purchases-grid { gap: 12px; }
+  #orders-stats-row { grid-template-columns: 1fr !important; gap: 10px !important; }
+
+  /* Footer */
+  .footer { padding: 40px 0 0; }
+  .footer-grid { gap: 24px; }
+
+  /* Toast */
+  .toast {
+    left: 16px;
+    right: 16px;
+    bottom: 80px; /* above mobile bottom nav */
+    min-width: unset;
+  }
+
+  /* Scroll-top above bottom nav */
+  .scroll-top {
+    bottom: 80px;
+    right: 16px;
+    left: auto;
+  }
 }
 
 @media (max-width: 480px) {
-  .products-grid { grid-template-columns: 1fr; }
-  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 14px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hero-title { font-size: clamp(26px, 7vw, 40px); }
   .hero-actions { flex-direction: column; }
-  .hero-actions .btn { justify-content: center; }
-  .products-full-grid { grid-template-columns: 1fr; }
+  .btn-lg { padding: 14px 24px; font-size: 14px; }
+  .products-full-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .product-card-body { padding: 12px; }
+  .cart-item { padding: 12px; }
+  .step-card { padding: 28px 20px; }
+  .testimonial-card { padding: 20px; }
+  .warehouse-card { padding: 20px; }
+  .auth-modal { margin: 8px; }
 }

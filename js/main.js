@@ -8,19 +8,120 @@
 /* ═══════════════════════════════════════════
    PRODUCT DATABASE
 ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   PRODUCT DATABASE (B2B Wholesale Marketplace - Multi-Brand & Variants)
+═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════
+   PRODUCT DATABASE (B2B Wholesale Marketplace - Multi-Brand & Multi-Variant Catalog)
+═══════════════════════════════════════════ */
 const PRODUCTS = [
-  { id:'p1',  name:'Aashirvaad Atta 10kg',       brand:'Aashirvaad', category:'grocery',       price:420,  oldPrice:460, moq:10, rating:4.8, reviews:2341, img:'assets/images/products/atta.jpg' },
-  { id:'p2',  name:'Soft Drink Cans 250ml',       brand:'CoolDrink',  category:'beverages',     price:18,   oldPrice:22,  moq:24, rating:4.6, reviews:1823, img:'assets/images/products/cola.jpg' },
-  { id:'p3',  name:'Soap Bar 125g Pack',           brand:'CleanCare',  category:'fmcg',          price:95,   oldPrice:105, moq:48, rating:4.7, reviews:3102, img:'assets/images/products/soap.jpg' },
-  { id:'p4',  name:'Classic Salted Chips 150g',   brand:'CrunchBite', category:'snacks',        price:10,   oldPrice:13,  moq:60, rating:4.5, reviews:4201, img:'assets/images/products/chips.jpg' },
-  { id:'p5',  name:'Toothpaste Daily Care 120g',  brand:'DentaGlow',  category:'fmcg',          price:112,  oldPrice:130, moq:24, rating:4.8, reviews:5610, img:'assets/images/products/toothpaste.jpg' },
-  { id:'p6',  name:'Instant Coffee Premium 200g', brand:'AromaGold',  category:'beverages',     price:35,   oldPrice:42,  moq:24, rating:4.9, reviews:1298, img:'assets/images/products/coffee.jpg' },
-  { id:'p7',  name:'Basmati Rice 5kg Bag',        brand:'RoyalGrain', category:'grocery',       price:125,  oldPrice:145, moq:20, rating:4.7, reviews:3890, img:'assets/images/products/rice.jpg' },
-  { id:'p8',  name:'Dishwash Liquid 500ml',       brand:'PureLine',   category:'cleaning',      price:45,   oldPrice:55,  moq:24, rating:4.6, reviews:2109, img:'assets/images/products/dishwash.jpg' },
-  { id:'p9',  name:'Premium Shampoo 500ml',       brand:'AuroraHair', category:'personal-care', price:175,  oldPrice:199, moq:24, rating:4.8, reviews:1876, img:'assets/images/products/shampoo.jpg' },
-  { id:'p10', name:'Toned Milk 500ml Pouches',    brand:'DairyFresh', category:'dairy',         price:28,   oldPrice:0,   moq:48, rating:4.9, reviews:6720, img:'assets/images/products/milk.jpg' },
-  { id:'p11', name:'Butter Biscuits 150g',        brand:'GoldenBake', category:'snacks',        price:12,   oldPrice:16,  moq:48, rating:4.6, reviews:3310, img:'assets/images/products/biscuits.jpg' },
-  { id:'p12', name:'Sunflower Cooking Oil 1L',    brand:'SunGold',    category:'grocery',       price:160,  oldPrice:185, moq:24, rating:4.7, reviews:4430, img:'assets/images/products/oil.jpg' },
+  // 🧃 COLD DRINKS & BEVERAGES (beverages)
+  { id:'b_coca_1',    name:'Coca-Cola Soft Drink 250ml Can (24 Can Tray)',            brand:'Coca-Cola',     category:'beverages', price:420,  oldPrice:528,  moq:24, rating:4.9, reviews:18200, img:'assets/images/products/cola.jpg' },
+  { id:'b_coca_2',    name:'Coca-Cola 600ml PET Bottle (24 Bottle Case)',             brand:'Coca-Cola',     category:'beverages', price:780,  oldPrice:960,  moq:24, rating:4.9, reviews:21400, img:'assets/images/products/cola.jpg' },
+  { id:'b_coca_3',    name:'Coca-Cola 2.25L Party Bottle (9 Bottle Case)',            brand:'Coca-Cola',     category:'beverages', price:720,  oldPrice:900,  moq:9,  rating:4.8, reviews:14500, img:'assets/images/products/cola.jpg' },
+  { id:'b_coca_4',    name:'Coca-Cola ₹10 Pocket Bottle 200ml (24 Case)',             brand:'Coca-Cola',     category:'beverages', price:210,  oldPrice:240,  moq:24, rating:4.9, reviews:29000, img:'assets/images/products/cola.jpg' },
+  { id:'b_sprite_1',  name:'Sprite Lemon-Lime Drink 250ml Can (24 Can Tray)',         brand:'Sprite',        category:'beverages', price:420,  oldPrice:528,  moq:24, rating:4.9, reviews:16800, img:'https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?auto=format&fit=crop&w=600&q=80' },
+  { id:'b_sprite_2',  name:'Sprite 750ml PET Bottle (24 Bottle Case)',                brand:'Sprite',        category:'beverages', price:840,  oldPrice:1080, moq:24, rating:4.9, reviews:19300, img:'https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?auto=format&fit=crop&w=600&q=80' },
+  { id:'b_thums_1',   name:'Thums Up Charged Carbonated Drink 250ml (24 Tray)',        brand:'Thums Up',      category:'beverages', price:420,  oldPrice:528,  moq:24, rating:4.9, reviews:22100, img:'assets/images/products/cola.jpg' },
+  { id:'b_thums_2',   name:'Thums Up 2.25L Party Bottle (9 Bottle Case)',             brand:'Thums Up',      category:'beverages', price:720,  oldPrice:900,  moq:9,  rating:4.9, reviews:18700, img:'assets/images/products/cola.jpg' },
+  { id:'b_dew_1',     name:'Mountain Dew Citrus Drink 250ml Can (24 Tray)',           brand:'Mountain Dew',  category:'beverages', price:420,  oldPrice:528,  moq:24, rating:4.8, reviews:14200, img:'https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?auto=format&fit=crop&w=600&q=80' },
+  { id:'b_redbull_1', name:'Red Bull Energy Drink 250ml Can (24 Can Case)',          brand:'Red Bull',      category:'beverages', price:2640, oldPrice:3000, moq:24, rating:5.0, reviews:11900, img:'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80' },
+  { id:'b_campa_1',   name:'Campa Cola Carbonated Drink 200ml (24 Bottle Case)',      brand:'Campa',         category:'beverages', price:180,  oldPrice:240,  moq:24, rating:4.7, reviews:8400,  img:'assets/images/products/cola.jpg' },
+  { id:'b_frooti_1',  name:'Frooti Fresh Mango Juice 125ml Tetra (40 Carton)',        brand:'Frooti',        category:'beverages', price:360,  oldPrice:400,  moq:40, rating:4.9, reviews:25400, img:'https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=600&q=80' },
+  { id:'b_frooti_2',  name:'Frooti Mango Drink 600ml Bottle (24 Case)',               brand:'Frooti',        category:'beverages', price:780,  oldPrice:960,  moq:24, rating:4.9, reviews:19800, img:'https://images.unsplash.com/photo-1525385133512-2f3bdd039054?auto=format&fit=crop&w=600&q=80' },
+  { id:'b_bisleri_1', name:'Bisleri Mineral Water 1L (24 Bottle Master Case)',        brand:'Bisleri',       category:'beverages', price:360,  oldPrice:480,  moq:24, rating:4.9, reviews:31000, img:'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80' },
+
+  // 🍿 BISCUITS, BAKERY & RUSK (snacks)
+  { id:'s_parleg_1',  name:'Parle-G Glucose Biscuit ₹5 Pack (120 Box)',               brand:'Parle',         category:'snacks',    price:540,  oldPrice:600,  moq:120,rating:4.9, reviews:48000, img:'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_parleg_2',  name:'Parle-G Glucose Biscuit ₹10 Pack (60 Box)',              brand:'Parle',         category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.9, reviews:39000, img:'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_parleg_3',  name:'Parle-G Glucose Biscuit 800g Family Pack (12 Box)',       brand:'Parle',         category:'snacks',    price:1080, oldPrice:1200, moq:12, rating:4.9, reviews:21000, img:'https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_goodday_1', name:'Britannia Good Day Cashew ₹10 Pack (60 Box)',            brand:'Britannia',     category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.9, reviews:34000, img:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_goodday_2', name:'Britannia Good Day Butter 120g (48 Pack Box)',           brand:'Britannia',     category:'snacks',    price:1150, oldPrice:1440, moq:48, rating:4.9, reviews:28000, img:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_marie_1',   name:'Britannia Marie Gold Biscuit ₹10 Pack (60 Box)',         brand:'Britannia',     category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.8, reviews:27000, img:'assets/images/products/biscuits.jpg' },
+  { id:'s_bourbon_1', name:'Britannia Bourbon Chocolate Biscuit 150g (36 Box)',       brand:'Britannia',     category:'snacks',    price:1080, oldPrice:1260, moq:36, rating:4.9, reviews:24000, img:'assets/images/products/biscuits.jpg' },
+  { id:'s_hideseek_1',name:'Parle Hide & Seek Choco Chip ₹10 Pack (60 Box)',         brand:'Parle',         category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.9, reviews:31000, img:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_hideseek_2',name:'Parle Hide & Seek Choco Chip 200g (24 Box)',             brand:'Parle',         category:'snacks',    price:1150, oldPrice:1320, moq:24, rating:4.9, reviews:18500, img:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_unibic_1',  name:'Unibic Butter Cookies 75g (48 Wholesale Box)',            brand:'Unibic',        category:'snacks',    price:960,  oldPrice:1200, moq:48, rating:4.8, reviews:14200, img:'assets/images/products/biscuits.jpg' },
+  { id:'s_unibic_2',  name:'Unibic Choco Ripple Cookies 150g (24 Box)',               brand:'Unibic',        category:'snacks',    price:1150, oldPrice:1440, moq:24, rating:4.8, reviews:11800, img:'assets/images/products/biscuits.jpg' },
+  { id:'s_sunfeast_1',name:'Sunfeast Dark Fantasy Choco Fills ₹10 Pack (60 Box)',     brand:'Sunfeast',      category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.9, reviews:29000, img:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_rusk_1',    name:'Britannia Toastea Milk Rusk ₹10 Pack (60 Box)',          brand:'Britannia',     category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.8, reviews:19800, img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_rusk_2',    name:'Britannia Toastea Premium Wheat Rusk 300g (24 Box)',     brand:'Britannia',     category:'snacks',    price:1080, oldPrice:1320, moq:24, rating:4.8, reviews:15400, img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80' },
+  { id:'s_lays_1',    name:'Lay\'s Magic Masala Chips ₹10 Pack (60 Box)',             brand:'Lay\'s',        category:'snacks',    price:540,  oldPrice:600,  moq:60, rating:4.8, reviews:41000, img:'assets/images/products/chips.jpg' },
+
+  // 🍬 CHOCOLATES & CANDY (confectionery)
+  { id:'conf_dairymilk_1', name:'Cadbury Dairy Milk Chocolate ₹5 Pack (120 Box)',    brand:'Cadbury',       category:'confectionery', price:540, oldPrice:600, moq:120, rating:4.9, reviews:32000, img:'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80' },
+  { id:'conf_dairymilk_2', name:'Cadbury Dairy Milk Chocolate ₹10 Pack (60 Box)',   brand:'Cadbury',       category:'confectionery', price:540, oldPrice:600, moq:60,  rating:4.9, reviews:28000, img:'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80' },
+  { id:'conf_dairymilk_3', name:'Cadbury Dairy Milk Silk 150g Bar (24 Box)',         brand:'Cadbury',       category:'confectionery', price:3600,oldPrice:4200,moq:24,  rating:5.0, reviews:19000, img:'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80' },
+  { id:'conf_vicks_1',      name:'Vicks Cough Drops Menthol (500 Sachet Jar)',       brand:'Vicks',         category:'confectionery', price:450, oldPrice:500, moq:1,   rating:4.9, reviews:24000, img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80' },
+  { id:'conf_happydent_1',  name:'Happydent Wave Spearmint Gum (24 Bottle Box)',    brand:'Happydent',     category:'confectionery', price:1150,oldPrice:1440,moq:24,  rating:4.8, reviews:15600, img:'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80' },
+  { id:'conf_coffeebite_1', name:'Coffee-Bite Toffee Pack (200 Pcs Jar)',           brand:'Coffee-Bite',   category:'confectionery', price:180, oldPrice:200, moq:1,   rating:4.8, reviews:11200, img:'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=600&q=80' },
+  { id:'conf_candyman_1',   name:'Candyman Fantastik Choco Sticks (100 Pcs Jar)',    brand:'Candyman',      category:'confectionery', price:360, oldPrice:400, moq:1,   rating:4.8, reviews:9800,  img:'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80' },
+
+  // 🧴 SOAPS, SHAMPOO, HAIR OIL & ORAL CARE (fmcg)
+  { id:'f_santoor_1', name:'Santoor Sandal Soap 100g 4-Pack (24 Case)',               brand:'Santoor',       category:'fmcg',      price:2640, oldPrice:2980, moq:24, rating:4.9, reviews:28000, img:'https://images.unsplash.com/photo-1607006482602-764988d07d72?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_santoor_2', name:'Santoor Sandal Soap ₹10 Small Bar (72 Case)',             brand:'Santoor',       category:'fmcg',      price:640,  oldPrice:720,  moq:72, rating:4.8, reviews:21000, img:'https://images.unsplash.com/photo-1607006482602-764988d07d72?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_lux_1',     name:'Lux Rose & Vitamin E Soap 100g (48 Soap Case)',           brand:'Lux',           category:'fmcg',      price:1920, oldPrice:2400, moq:48, rating:4.8, reviews:24000, img:'assets/images/products/soap.jpg' },
+  { id:'f_dettol_1',  name:'Dettol Original Antiseptic Soap 125g (48 Case)',          brand:'Dettol',        category:'fmcg',      price:2160, oldPrice:2400, moq:48, rating:4.9, reviews:32000, img:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_lifebuoy_1',name:'Lifebuoy Total 10 Soap Bar ₹10 Pack (72 Case)',           brand:'Lifebuoy',      category:'fmcg',      price:640,  oldPrice:720,  moq:72, rating:4.8, reviews:35000, img:'assets/images/products/soap.jpg' },
+  { id:'f_mysore_1',  name:'Mysore Sandal Soap Original 150g (36 Bar Case)',          brand:'Mysore Sandal', category:'fmcg',      price:2880, oldPrice:3240, moq:36, rating:5.0, reviews:41000, img:'https://images.unsplash.com/photo-1607006482602-764988d07d72?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_clinic_1',  name:'Clinic Plus Strong & Long Shampoo ₹1 Sachet (640 Box)',   brand:'Clinic Plus',   category:'fmcg',      price:560,  oldPrice:640,  moq:640,rating:4.9, reviews:38000, img:'assets/images/products/shampoo.jpg' },
+  { id:'f_clinic_2',  name:'Clinic Plus Shampoo 175ml Bottle (24 Bottle Case)',       brand:'Clinic Plus',   category:'fmcg',      price:2880, oldPrice:3360, moq:24, rating:4.9, reviews:29000, img:'assets/images/products/shampoo.jpg' },
+  { id:'f_sunsilk_1', name:'Sunsilk Black Shine Shampoo ₹1 Sachet (640 Box)',         brand:'Sunsilk',       category:'fmcg',      price:560,  oldPrice:640,  moq:640,rating:4.8, reviews:31000, img:'assets/images/products/shampoo.jpg' },
+  { id:'f_sunsilk_2', name:'Sunsilk Yellow Shampoo 180ml Bottle (24 Case)',            brand:'Sunsilk',       category:'fmcg',      price:3120, oldPrice:3600, moq:24, rating:4.8, reviews:22000, img:'assets/images/products/shampoo.jpg' },
+  { id:'f_head_1',    name:'Head & Shoulders Anti-Dandruff 180ml (24 Case)',          brand:'Head & Shoulders',category:'fmcg',   price:3840, oldPrice:4400, moq:24, rating:4.9, reviews:27000, img:'assets/images/products/shampoo.jpg' },
+  { id:'f_parachute_1',name:'Parachute Coconut Hair Oil ₹1 Sachet (500 Box)',         brand:'Parachute',     category:'fmcg',      price:450,  oldPrice:500,  moq:500,rating:4.9, reviews:34000, img:'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_parachute_2',name:'Parachute Pure Coconut Oil 100ml Bottle (36 Case)',       brand:'Parachute',     category:'fmcg',      price:1350, oldPrice:1500, moq:36, rating:4.9, reviews:26000, img:'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_navratna_1', name:'Navratna Ayurvedic Cool Hair Oil 100ml (36 Case)',       brand:'Navratna',      category:'fmcg',      price:1620, oldPrice:1800, moq:36, rating:4.8, reviews:19000, img:'https://images.unsplash.com/photo-1526947425960-945c6e72858f?auto=format&fit=crop&w=600&q=80' },
+  { id:'f_colgate_1', name:'Colgate Strong Teeth Toothpaste ₹10 Tube (48 Box)',        brand:'Colgate',       category:'fmcg',      price:432,  oldPrice:480,  moq:48, rating:4.9, reviews:39000, img:'assets/images/products/toothpaste.jpg' },
+  { id:'f_colgate_2', name:'Colgate Strong Teeth Toothpaste 150g (24 Box)',            brand:'Colgate',       category:'fmcg',      price:2160, oldPrice:2520, moq:24, rating:4.9, reviews:36000, img:'assets/images/products/toothpaste.jpg' },
+  { id:'f_dabur_1',   name:'Dabur Red Ayurvedic Toothpaste 100g (24 Box)',            brand:'Dabur',         category:'fmcg',      price:1440, oldPrice:1680, moq:24, rating:4.8, reviews:21000, img:'assets/images/products/toothpaste.jpg' },
+
+  // 🥛 HEALTH DRINKS, TEA & COFFEE (health)
+  { id:'h_horlicks_1',name:'Horlicks Classic Malt 500g Jar (12 Jar Case)',            brand:'Horlicks',      category:'health',    price:2880, oldPrice:3240, moq:12, rating:4.9, reviews:28000, img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_horlicks_2',name:'Horlicks Classic Malt 1kg Refill Pack (12 Case)',          brand:'Horlicks',      category:'health',    price:4680, oldPrice:5280, moq:12, rating:4.9, reviews:22000, img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_horlicks_3',name:'Horlicks ₹10 Sachet Pack (120 Sachet Box)',              brand:'Horlicks',      category:'health',    price:1080, oldPrice:1200, moq:120,rating:4.8, reviews:18000, img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_boost_1',   name:'Boost Energy Health Drink 500g Refill (12 Case)',         brand:'Boost',         category:'health',    price:2760, oldPrice:3120, moq:12, rating:4.9, reviews:24000, img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_bournvita_1',name:'Bournvita Chocolate Drink 500g Jar (12 Case)',           brand:'Bournvita',     category:'health',    price:2760, oldPrice:3120, moq:12, rating:4.9, reviews:26000, img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_complan_1', name:'Complan Royale Chocolate 500g Refill (12 Case)',          brand:'Complan',       category:'health',    price:2880, oldPrice:3240, moq:12, rating:4.8, reviews:14200, img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_bru_1',      name:'Bru Instant Coffee Powder ₹2 Sachet (100 Pouch Box)',    brand:'Bru',           category:'health',    price:180,  oldPrice:200,  moq:100,rating:4.9, reviews:23000, img:'assets/images/products/coffee.jpg' },
+  { id:'h_bru_2',      name:'Bru Instant Coffee 100g Glass Jar (12 Case)',            brand:'Bru',           category:'health',    price:2160, oldPrice:2400, moq:12, rating:4.9, reviews:17500, img:'assets/images/products/coffee.jpg' },
+  { id:'h_nescafe_1',  name:'Nescafé Classic Coffee Powder ₹2 Sachet (100 Box)',      brand:'Nescafé',       category:'health',    price:180,  oldPrice:200,  moq:100,rating:4.9, reviews:29000, img:'assets/images/products/coffee.jpg' },
+  { id:'h_nescafe_2',  name:'Nescafé Classic Coffee 50g Glass Jar (24 Case)',         brand:'Nescafé',       category:'health',    price:3360, oldPrice:3840, moq:24, rating:4.9, reviews:21000, img:'assets/images/products/coffee.jpg' },
+  { id:'h_redlabel_1', name:'Brooke Bond Red Label Tea Powder ₹10 Pouch (60 Box)',   brand:'Red Label',     category:'health',    price:540,  oldPrice:600,  moq:60, rating:4.9, reviews:32000, img:'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_redlabel_2', name:'Brooke Bond Red Label Tea 250g Pack (24 Case)',         brand:'Red Label',     category:'health',    price:3120, oldPrice:3600, moq:24, rating:4.9, reviews:27000, img:'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80' },
+  { id:'h_tajmahal_1', name:'Taj Mahal Tea 250g Premium Pack (24 Case)',              brand:'Taj Mahal',     category:'health',    price:4320, oldPrice:4800, moq:24, rating:5.0, reviews:19800, img:'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80' },
+
+  // 🧹 CLEANING PRODUCTS & DETERGENTS (cleaning)
+  { id:'c_harpic_1',  name:'Harpic Power Plus Toilet Cleaner 500ml (24 Case)',        brand:'Harpic',        category:'cleaning',  price:2160, oldPrice:2520, moq:24, rating:4.9, reviews:29000, img:'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_harpic_2',  name:'Harpic Power Plus Toilet Cleaner 1L (12 Case)',           brand:'Harpic',        category:'cleaning',  price:1980, oldPrice:2280, moq:12, rating:4.9, reviews:24000, img:'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_lizol_1',   name:'Lizol Floor Cleaner Citrus 500ml (24 Case)',              brand:'Lizol',         category:'cleaning',  price:2160, oldPrice:2520, moq:24, rating:4.8, reviews:21000, img:'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_lizol_2',   name:'Lizol Floor Cleaner Citrus 2L (6 Bottle Case)',           brand:'Lizol',         category:'cleaning',  price:1860, oldPrice:2160, moq:6,  rating:4.8, reviews:17500, img:'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_vim_1',     name:'Vim Dishwash Bar ₹10 Pack (72 Bar Case)',                 brand:'Vim',           category:'cleaning',  price:640,  oldPrice:720,  moq:72, rating:4.9, reviews:33000, img:'assets/images/products/dishwash.jpg' },
+  { id:'c_vim_2',     name:'Vim Dishwash Gel Lemon 750ml (12 Refill Case)',           brand:'Vim',           category:'cleaning',  price:1440, oldPrice:1680, moq:12, rating:4.9, reviews:26000, img:'assets/images/products/dishwash.jpg' },
+  { id:'c_surf_1',    name:'Surf Excel Easy Wash Detergent Powder ₹10 Pouch (72 Box)',brand:'Surf Excel',    category:'cleaning',  price:640,  oldPrice:720,  moq:72, rating:4.9, reviews:35000, img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_surf_2',    name:'Surf Excel Easy Wash Detergent Powder 1kg (12 Case)',     brand:'Surf Excel',    category:'cleaning',  price:1680, oldPrice:1920, moq:12, rating:4.9, reviews:31000, img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_surf_3',    name:'Surf Excel Easy Wash Detergent Powder 5kg (4 Box)',       brand:'Surf Excel',    category:'cleaning',  price:2100, oldPrice:2400, moq:4,  rating:4.9, reviews:27000, img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_tide_1',    name:'Tide Plus Extra Power Detergent Powder 1kg (12 Case)',     brand:'Tide',          category:'cleaning',  price:1320, oldPrice:1560, moq:12, rating:4.8, reviews:23000, img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80' },
+  { id:'c_wheel_1',   name:'Wheel Active 2 in 1 Detergent Powder ₹10 Pack (72 Case)', brand:'Wheel',         category:'cleaning',  price:640,  oldPrice:720,  moq:72, rating:4.8, reviews:29000, img:'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=600&q=80' },
+
+  // 👶 DIAPERS & BABY CARE (baby)
+  { id:'bby_mamypoko_1', name:'MamyPoko Pants Extra Absorb Small (4 Diaper Pack x 24)', brand:'MamyPoko',   category:'baby',      price:1150, oldPrice:1320, moq:24, rating:4.9, reviews:19000, img:'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80' },
+  { id:'bby_mamypoko_2', name:'MamyPoko Pants Extra Absorb Medium (20 Diaper Pack x 8)',brand:'MamyPoko',   category:'baby',      price:2760, oldPrice:3120, moq:8,  rating:4.9, reviews:23000, img:'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80' },
+  { id:'bby_pampers_1',  name:'Pampers All-in-One Pants Medium (28 Diaper Pack x 6)',   brand:'Pampers',       category:'baby',      price:2520, oldPrice:2880, moq:6,  rating:4.9, reviews:27000, img:'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80' },
+  { id:'bby_pampers_2',  name:'Pampers Baby Wipes Fresh Clean (72 Wipes x 12 Box)',    brand:'Pampers',       category:'baby',      price:1800, oldPrice:2160, moq:12, rating:4.9, reviews:16500, img:'https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80' },
+
+  // 🌾 GROCERY STAPLES, ATTA & OILS (grocery)
+  { id:'g_atta_1',   name:'Aashirvaad Whole Wheat Atta 10kg (5 Bag Pack)',           brand:'Aashirvaad',    category:'grocery',   price:2050, oldPrice:2300, moq:5,  rating:4.9, reviews:38000, img:'assets/images/products/atta.jpg' },
+  { id:'g_rice_1',   name:'Royal Sona Masoori Raw Rice 25kg (2 Bag Pack)',           brand:'Karnataka Agro',category:'grocery',   price:2650, oldPrice:2980, moq:2,  rating:4.9, reviews:42000, img:'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80' },
+  { id:'g_oil_1',    name:'Fortune Sunlite Sunflower Oil 15L Bulk Tin',              brand:'Fortune Oils',  category:'grocery',   price:2180, oldPrice:2450, moq:2,  rating:4.9, reviews:34000, img:'assets/images/products/oil.jpg' },
+  { id:'g_oil_2',    name:'Freedom Refined Sunflower Oil 5L (4 Can Case)',           brand:'Freedom Oil',   category:'grocery',   price:2320, oldPrice:2600, moq:4,  rating:4.8, reviews:26000, img:'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80' },
+  { id:'g_ghee_1',   name:'Nandini Pure Cow Ghee 1kg (12 Pouch Case)',               brand:'Nandini Dairy', category:'grocery',   price:6960, oldPrice:7680, moq:12, rating:5.0, reviews:49000, img:'https://images.unsplash.com/photo-1631451095765-2c91616fc9e6?auto=format&fit=crop&w=600&q=80' },
+
+  // ✏️ STATIONERY & SHOP SUPPLIES (stationery)
+  { id:'st_classmate_1', name:'Classmate Long Notebook 172 Pages (60 Book Carton)', brand:'Classmate',   category:'stationery',price:2400, oldPrice:2700, moq:60, rating:4.9, reviews:18000, img:'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=600&q=80' },
+  { id:'st_nataraj_1',   name:'Nataraj 621 HB Pencils (50 Pencil Box x 10 Packs)',   brand:'Nataraj',     category:'stationery',price:450,  oldPrice:500,  moq:10, rating:4.9, reviews:15000, img:'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=600&q=80' },
+  { id:'st_cello_1',     name:'Cello Butterflow Blue Ball Pen (50 Pen Box x 10)',     brand:'Cello',       category:'stationery',price:950,  oldPrice:1100, moq:10, rating:4.9, reviews:21000, img:'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=600&q=80' },
+  { id:'st_fevicol_1',   name:'Fevicol MR Squeezy Bottle 50g (24 Bottle Box)',        brand:'Pidilite',    category:'stationery',price:432,  oldPrice:480,  moq:24, rating:4.9, reviews:13500, img:'https://images.unsplash.com/photo-1585776245991-cf89dd7fc73a?auto=format&fit=crop&w=600&q=80' }
 ];
 
 /* ═══════════════════════════════════════════
@@ -338,7 +439,7 @@ function buildAmzCard(p, qty = null) {
     <div class="amz-card-img">
       ${disc ? `<div class="amz-img-badge"><span class="badge badge-success">${disc}% off</span></div>` : ''}
       <div class="amz-wishlist" id="wish-${p.id}" onclick="toggleWishlist('${p.id}',event)">♡</div>
-      <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.src='assets/images/products/atta.jpg'" />
+      <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='assets/images/products/atta.jpg'" />
     </div>
     <div class="amz-card-body">
       <div class="amz-brand">${p.brand}</div>
@@ -418,7 +519,7 @@ function renderBuyAgain() {
 
   container.innerHTML = products.map(p => `
     <div class="buy-again-card">
-      <img src="${p.img || 'assets/images/products/atta.jpg'}" alt="${p.name}" onerror="this.src='assets/images/products/atta.jpg'" />
+      <img src="${p.img || 'assets/images/products/atta.jpg'}" alt="${p.name}" onerror="this.onerror=null;this.src='assets/images/products/atta.jpg'" />
       <div class="ba-name">${p.name}</div>
       <div class="ba-price">₹${p.price}<span style="font-size:10px;color:var(--grey-500);font-weight:400">/${p.unit||'unit'}</span></div>
       <button class="ba-reorder-btn" onclick="reorderItem('${p.id}')">↺ Reorder</button>
@@ -439,13 +540,13 @@ function reorderItem(id) {
 ═══════════════════════════════════════════ */
 function renderHomepageProducts() {
   const categories = [
-    { id: 'grocery',       label: '🛒 Grocery Staples' },
-    { id: 'beverages',     label: '🧃 Beverages' },
-    { id: 'fmcg',          label: '🧴 FMCG & Personal Care' },
-    { id: 'snacks',        label: '🍿 Snacks & Biscuits' },
-    { id: 'cleaning',      label: '🧹 Cleaning & Household' },
-    { id: 'dairy',         label: '🥛 Dairy' },
-    { id: 'personal-care', label: '💆 Personal Care' },
+    { id: 'beverages',  label: '🧃 Cold Drinks & Beverages' },
+    { id: 'snacks',     label: '🍿 Biscuits, Bakery & Rusk' },
+    { id: 'fmcg',       label: '🧴 Soaps, Shampoo & Personal Care' },
+    { id: 'health',     label: '🥛 Health Drinks & Nutrition' },
+    { id: 'cleaning',   label: '🧹 Cleaning Products & Detergents' },
+    { id: 'grocery',    label: '🌾 Grocery Staples & Cooking Oils' },
+    { id: 'stationery', label: '✏️ Stationery & Shop Supplies' }
   ];
 
   const wrap = document.getElementById('category-sections');
@@ -469,7 +570,7 @@ function renderHomepageProducts() {
   html += `
     <div class="home-section" id="sec-all">
       <div class="home-section-header">
-        <div class="home-section-title">🏷️ All Products</div>
+        <div class="home-section-title">🏭 All Wholesale Bulk Inventory</div>
         <a href="products.html" class="home-section-link">View full catalog →</a>
       </div>
       <div class="amz-products-grid">${PRODUCTS.map(p => buildAmzCard(p)).join('')}</div>
@@ -502,9 +603,9 @@ function homepageSearch(query) {
 ═══════════════════════════════════════════ */
 let slideIndex = 0, slideTimer;
 const SLIDES = [
-  { label: 'Flash Deal Today', title: 'Up to 20% Off\nGrocery Essentials', sub: 'Premium atta, rice, pulses at wholesale prices', color: '#0D1B2A', img: 'assets/images/products/atta.jpg' },
-  { label: 'Beverages Bonanza', title: 'Stock Up\non Beverages', sub: '24-can packs starting at ₹18 per can', color: '#162236', img: 'assets/images/products/cola.jpg' },
-  { label: 'FMCG Special', title: 'Best Prices on\nHousehold Must-Haves', sub: 'Soaps, toothpaste, dishwash & more', color: '#0D1B2A', img: 'assets/images/products/dishwash.jpg' },
+  { label: 'B2B Wholesale Marketplace 🏭', title: 'Bulk Inventory Supplies\nfor Retail Shop Owners', sub: 'Atta, Rice, Cooking Oil & Ghee at direct warehouse prices with GST invoices', color: '#1A1133', img: 'assets/images/hero_warehouse.jpg' },
+  { label: 'FMCG & Hygiene Wholesale 🧴', title: 'Stock Up on Soaps,\nShampoos & Detergents', sub: 'Mysore Sandal, Dettol, Surf Excel & Vim bulk cartons delivered in 24-48 hrs', color: '#2D1B69', img: 'assets/images/products/soap.jpg' },
+  { label: 'Beverages & Packaged Goods 🧃', title: 'Packaged Drinks &\nRetail Snack Cartons', sub: 'Nandini GoodLife Milk, Cothas Coffee, Bisleri & Chips master boxes for Kirana shops', color: '#1A1133', img: 'assets/images/products/cola.jpg' },
 ];
 
 function initSlider() {

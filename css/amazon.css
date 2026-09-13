@@ -2,6 +2,35 @@
    JAN — Additional Styles: Amazon Layout, Auth, Buy-Again
    ============================================================ */
 
+/* ── Professional Shop-Owner Background (Violet Theme) ── */
+body {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(124,58,237,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(91,33,182,0.08) 0%, transparent 55%),
+    linear-gradient(160deg, #F7F5FF 0%, #F0EAFF 40%, #EDE4FF 100%);
+  background-attachment: fixed;
+}
+
+/* Subtle geometric grid overlay on background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Ensure content sits above body pseudo-element */
+.navbar, .mobile-nav, .homepage-layout, .page-header,
+.container, .auth-overlay, .toast, .scroll-top {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── Amazon-Style Homepage Layout ── */
 .homepage-layout {
   display: grid;
@@ -229,8 +258,42 @@
 
 /* Main Content */
 .home-main {
-  background: #f0f2f5;
+  background: transparent;
   min-height: 100%;
+}
+
+.home-main > div {
+  padding: clamp(12px, 3vw, 24px);
+}
+
+/* ── How Jan Works Grid ── */
+.how-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.how-works-step {
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.how-works-step--mid {
+  border-left: 1px solid var(--grey-100);
+  border-right: 1px solid var(--grey-100);
+}
+
+/* ── Partner CTA Banner ── */
+.partner-cta-banner {
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 /* ── Amazon Product Card ── */
@@ -1210,32 +1273,201 @@
   }
 }
 
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVENESS — Full Phone Layout
+   ══════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* Layout */
   .homepage-layout {
     grid-template-columns: 1fr;
+    padding-top: 60px;
   }
+
+  /* Sidebar: drawer from left */
   .home-sidebar {
     display: none;
-    width: 100%;
+    width: min(80vw, 300px);
     position: fixed;
     left: 0;
     bottom: 0;
-    top: 72px;
+    top: 60px;
     z-index: 500;
     height: auto;
+    box-shadow: 4px 0 30px rgba(0,0,0,0.4);
   }
   .home-sidebar.mobile-open {
     display: flex;
   }
-  .amz-products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .hero-slide { height: 180px; }
-}
 
-@media (max-width: 480px) {
+  /* Main padding */
+  .home-main > div {
+    padding: 12px;
+  }
+
+  /* Product grids */
   .amz-products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
+
+  /* Hero banner */
+  .hero-slide { height: 160px; }
+  .hero-slide-content { padding: 20px; }
+  .hero-slide-title { font-size: clamp(16px, 5vw, 24px); }
+  .hero-slide-sub { font-size: 12px; margin-bottom: 12px; }
+
+  /* Search bar stacking */
+  .home-search-bar {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    gap: 8px;
+    border-radius: 14px;
+  }
+  .home-search-bar select {
+    border-right: none;
+    border-bottom: 1px solid var(--grey-100);
+    padding-right: 0;
+    width: 100%;
+    padding-bottom: 8px;
+  }
+
+  /* Category pills: scrollable horizontal strip */
+  .cat-pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+  .cat-pills::-webkit-scrollbar { display: none; }
+  .cat-pill { flex-shrink: 0; }
+
+  /* Stats strip: 2 columns */
+  #stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+
+  /* How It Works compact: 1 column */
+  .home-section > div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Home section */
+  .home-section {
+    padding: 16px;
+    border-radius: 14px;
+  }
+  .home-section-title { font-size: 16px; }
+
+  /* Buy again cards */
+  .buy-again-card { width: 140px; }
+
+  /* Auth modal */
+  .auth-modal-body { padding: 16px; }
+  .auth-modal-header { padding: 20px 16px 16px; }
+
+  /* Order cards */
+  .order-header { padding: 12px 16px; }
+  .order-items-list { padding: 12px 16px; }
+  .order-footer { padding: 12px 16px; }
+  .order-item { flex-wrap: wrap; gap: 10px; }
+  .order-item-img { width: 56px; height: 56px; }
+
+  /* Partner CTA */
+  #stats-strip + * { flex-direction: column !important; }
+
+  /* Mobile sticky bottom nav bar */
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 900;
+    padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+  }
+
+  /* Push page content above bottom nav */
+  body {
+    padding-bottom: 68px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Products: 2 columns but tighter */
+  .amz-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .amz-card-body { padding: 8px; }
+  .amz-name { font-size: 12px; }
+  .amz-price { font-size: 16px; }
+
+  /* Hero slide smaller */
+  .hero-slide { height: 140px; }
+
+  /* Home search: hide select on very small screens */
+  .home-search-bar select {
+    display: none;
+  }
+
+  /* Stats: still 2 col */
+  #stats-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .stat-number { font-size: 24px !important; }
+}
+
+/* ── Mobile Bottom Nav (shared across all pages) ── */
+.mobile-bottom-nav {
+  display: none; /* hidden on desktop */
+}
+
+.mobile-bottom-nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 4px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--font-head);
+  font-size: 10px;
+  font-weight: 600;
+  transition: color 0.2s;
+  position: relative;
+  letter-spacing: 0.3px;
+}
+
+.mobile-bottom-nav-item.active,
+.mobile-bottom-nav-item:hover {
+  color: var(--amber);
+}
+
+.mobile-bottom-nav-item svg {
+  width: 22px; height: 22px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.mobile-bottom-nav-item .mnav-badge {
+  position: absolute;
+  top: 4px;
+  left: calc(50% + 6px);
+  min-width: 16px; height: 16px;
+  background: var(--amber);
+  color: var(--navy);
+  border-radius: 99px;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
 }

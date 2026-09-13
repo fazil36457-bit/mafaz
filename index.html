@@ -7,6 +7,7 @@
   <meta name="description" content="Jan connects small retail shops with hundreds of wholesale warehouses. Order groceries, FMCG, beverages & more at wholesale prices with doorstep delivery." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/amazon.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
 </head>
 <body>
 
@@ -20,6 +21,11 @@
     </a>
     <div class="nav-links">
       <a href="index.html"   class="nav-link active" id="nav-home">Home</a>
+      <a href="cart.html" class="nav-cart-pill" id="nav-cart-pill" aria-label="Cart">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Cart
+        <span class="cart-badge" style="display:none">0</span>
+      </a>
       <a href="products.html" class="nav-link" id="nav-products">Products</a>
       <a href="purchases.html" class="nav-link" id="nav-orders">My Orders</a>
       <a href="about.html"   class="nav-link" id="nav-about">How It Works</a>
@@ -39,7 +45,7 @@
       </div>
       <a href="cart.html" class="nav-cart-btn" id="nav-cart-btn" aria-label="Cart">
         <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cart-badge" style="display:none">0</span>
+        <span class="cart-badge" id="nav-cart-badge-icon" style="display:none">0</span>
       </a>
     </div>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -88,14 +94,16 @@
 
     <!-- Category Navigation -->
     <div class="sidebar-nav-section">
-      <div class="sidebar-nav-label">Categories</div>
-      <a href="#sec-grocery"       class="sidebar-nav-item" id="snav-grocery"><span class="icon">🛒</span> Grocery</a>
-      <a href="#sec-beverages"     class="sidebar-nav-item" id="snav-bev"><span class="icon">🧃</span> Beverages</a>
-      <a href="#sec-fmcg"          class="sidebar-nav-item" id="snav-fmcg"><span class="icon">🧴</span> FMCG</a>
-      <a href="#sec-snacks"        class="sidebar-nav-item" id="snav-snacks"><span class="icon">🍿</span> Snacks</a>
-      <a href="#sec-cleaning"      class="sidebar-nav-item" id="snav-clean"><span class="icon">🧹</span> Cleaning</a>
-      <a href="#sec-dairy"         class="sidebar-nav-item" id="snav-dairy"><span class="icon">🥛</span> Dairy</a>
-      <a href="#sec-personal-care" class="sidebar-nav-item" id="snav-pc"><span class="icon">💆</span> Personal Care</a>
+      <div class="sidebar-nav-label">Kirana Wholesale Categories</div>
+      <a href="#sec-beverages"     class="sidebar-nav-item" id="snav-bev"><span class="icon">🧃</span> Cold Drinks & Beverages</a>
+      <a href="#sec-snacks"        class="sidebar-nav-item" id="snav-snacks"><span class="icon">🍿</span> Biscuits, Bakery & Rusk</a>
+      <a href="#sec-confectionery" class="sidebar-nav-item" id="snav-conf"><span class="icon">🍬</span> Chocolates & Candy</a>
+      <a href="#sec-fmcg"          class="sidebar-nav-item" id="snav-fmcg"><span class="icon">🧴</span> Soaps, Hair & Care</a>
+      <a href="#sec-health"        class="sidebar-nav-item" id="snav-health"><span class="icon">🥛</span> Health Drinks, Tea & Coffee</a>
+      <a href="#sec-cleaning"      class="sidebar-nav-item" id="snav-clean"><span class="icon">🧹</span> Cleaning & Detergents</a>
+      <a href="#sec-baby"          class="sidebar-nav-item" id="snav-baby"><span class="icon">👶</span> Diapers & Baby Care</a>
+      <a href="#sec-grocery"       class="sidebar-nav-item" id="snav-grocery"><span class="icon">🌾</span> Grocery & Cooking Oils</a>
+      <a href="#sec-stationery"    class="sidebar-nav-item" id="snav-stat"><span class="icon">✏️</span> Stationery & Shop Items</a>
     </div>
 
     <!-- Quick Links -->
@@ -123,16 +131,18 @@
       <!-- Search Bar -->
       <div class="home-search-bar">
         <select id="search-category-select">
-          <option value="all">All Categories</option>
-          <option value="grocery">Grocery</option>
-          <option value="beverages">Beverages</option>
-          <option value="fmcg">FMCG</option>
-          <option value="snacks">Snacks</option>
-          <option value="cleaning">Cleaning</option>
-          <option value="dairy">Dairy</option>
-          <option value="personal-care">Personal Care</option>
+          <option value="all">All Wholesale Categories</option>
+          <option value="beverages">Cold Drinks & Beverages</option>
+          <option value="snacks">Biscuits, Bakery & Rusk</option>
+          <option value="confectionery">Chocolates & Candy</option>
+          <option value="fmcg">Soaps, Shampoo, Hair Oil & Oral Care</option>
+          <option value="health">Health Drinks, Tea & Coffee</option>
+          <option value="cleaning">Cleaning & Detergents</option>
+          <option value="baby">Diapers & Baby Care</option>
+          <option value="grocery">Grocery & Cooking Oils</option>
+          <option value="stationery">Stationery & Supplies</option>
         </select>
-        <input type="text" id="home-search" placeholder="Search for atta, soap, chips, shampoo…" oninput="homepageSearch(this.value)" />
+        <input type="text" id="home-search" placeholder="Search for Sprite, Coca-Cola, Parle-G, Cadbury, Santoor, Harpic, Pampers, Bru..." oninput="homepageSearch(this.value)" />
         <button class="home-search-btn" onclick="homepageSearch(document.getElementById('home-search').value)" aria-label="Search">
           <svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         </button>
@@ -140,14 +150,16 @@
 
       <!-- Category Pills -->
       <div class="cat-pills" id="cat-pills">
-        <a class="cat-pill active" id="pill-all" data-cat="all" onclick="filterHomeSection('all');return false" href="#">All</a>
-        <a class="cat-pill" id="pill-grocery" data-cat="grocery" href="#sec-grocery">🛒 Grocery</a>
-        <a class="cat-pill" id="pill-bev" data-cat="beverages" href="#sec-beverages">🧃 Beverages</a>
-        <a class="cat-pill" id="pill-fmcg" data-cat="fmcg" href="#sec-fmcg">🧴 FMCG</a>
-        <a class="cat-pill" id="pill-snacks" data-cat="snacks" href="#sec-snacks">🍿 Snacks</a>
-        <a class="cat-pill" id="pill-cleaning" data-cat="cleaning" href="#sec-cleaning">🧹 Cleaning</a>
-        <a class="cat-pill" id="pill-dairy" data-cat="dairy" href="#sec-dairy">🥛 Dairy</a>
-        <a class="cat-pill" id="pill-pc" data-cat="personal-care" href="#sec-personal-care">💆 Personal Care</a>
+        <a class="cat-pill active" id="pill-all" data-cat="all" onclick="filterHomeSection('all');return false" href="#">All Wholesale</a>
+        <a class="cat-pill" id="pill-bev" data-cat="beverages" href="#sec-beverages">🧃 Cold Drinks & Beverages</a>
+        <a class="cat-pill" id="pill-snacks" data-cat="snacks" href="#sec-snacks">🍿 Biscuits & Bakery</a>
+        <a class="cat-pill" id="pill-conf" data-cat="confectionery" href="#sec-confectionery">🍬 Chocolates & Candy</a>
+        <a class="cat-pill" id="pill-fmcg" data-cat="fmcg" href="#sec-fmcg">🧴 Soaps & Hair Care</a>
+        <a class="cat-pill" id="pill-health" data-cat="health" href="#sec-health">🥛 Health Drinks, Tea & Coffee</a>
+        <a class="cat-pill" id="pill-cleaning" data-cat="cleaning" href="#sec-cleaning">🧹 Cleaning & Detergents</a>
+        <a class="cat-pill" id="pill-baby" data-cat="baby" href="#sec-baby">👶 Diapers & Baby Care</a>
+        <a class="cat-pill" id="pill-grocery" data-cat="grocery" href="#sec-grocery">🌾 Grocery Staples</a>
+        <a class="cat-pill" id="pill-stat" data-cat="stationery" href="#sec-stationery">✏️ Stationery</a>
       </div>
 
       <!-- Hero Banner Slider -->
@@ -214,18 +226,18 @@
           <div class="home-section-title">🚀 How Jan Works</div>
           <a href="about.html" class="home-section-link" id="how-link">Learn more →</a>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-          <div style="text-align:center;padding:20px 16px">
+        <div class="how-works-grid">
+          <div class="how-works-step">
             <div style="font-size:40px;margin-bottom:12px">🔍</div>
-            <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Browse & Order</div>
+            <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Browse &amp; Order</div>
             <div style="font-size:13px;color:var(--grey-500);line-height:1.6">Search 50,000+ products, set qty (min 10) and add to cart in seconds.</div>
           </div>
-          <div style="text-align:center;padding:20px 16px;border-left:1px solid var(--grey-100);border-right:1px solid var(--grey-100)">
+          <div class="how-works-step how-works-step--mid">
             <div style="font-size:40px;margin-bottom:12px">🏭</div>
             <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Jan Sources It</div>
             <div style="font-size:13px;color:var(--grey-500);line-height:1.6">We route your order to the best nearby verified warehouse partner.</div>
           </div>
-          <div style="text-align:center;padding:20px 16px">
+          <div class="how-works-step">
             <div style="font-size:40px;margin-bottom:12px">🚚</div>
             <div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px">Delivered to Shop</div>
             <div style="font-size:13px;color:var(--grey-500);line-height:1.6">Your goods arrive at your doorstep within 24-48 hours.</div>
@@ -234,7 +246,7 @@
       </div>
 
       <!-- ── PARTNER CTA ── -->
-      <div style="background:linear-gradient(135deg,var(--amber),var(--amber-dark));border-radius:var(--radius-lg);padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:16px">
+      <div class="partner-cta-banner">
         <div>
           <div style="font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--navy)">Own a Wholesale Warehouse?</div>
           <div style="font-size:14px;color:rgba(13,27,42,0.65);margin-top:4px">List your inventory on Jan and reach thousands of shops in your city.</div>
@@ -358,5 +370,31 @@
     });
   }
 </script>
+
+<!-- Mobile Bottom Nav Bar -->
+<nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile navigation">
+  <a href="index.html" class="mobile-bottom-nav-item active" id="mbnav-home">
+    <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+    Home
+  </a>
+  <a href="products.html" class="mobile-bottom-nav-item" id="mbnav-products">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Products
+  </a>
+  <a href="cart.html" class="mobile-bottom-nav-item" id="mbnav-cart">
+    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <span class="mnav-badge" id="mnav-cart-badge" style="display:none">0</span>
+    Cart
+  </a>
+  <a href="purchases.html" class="mobile-bottom-nav-item" id="mbnav-orders">
+    <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+    Orders
+  </a>
+  <a href="about.html" class="mobile-bottom-nav-item" id="mbnav-about">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    Info
+  </a>
+</nav>
 </body>
 </html>
+

@@ -7,6 +7,7 @@
   <meta name="description" content="Browse 50,000+ wholesale products. Groceries, FMCG, beverages, snacks, cleaning and more at unbeatable wholesale prices." />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/amazon.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
 </head>
 <body>
 
@@ -16,6 +17,11 @@
       <a href="index.html" class="nav-logo" id="brand-logo">Jan<div class="logo-dot"></div></a>
       <div class="nav-links">
         <a href="index.html"    class="nav-link" id="nav-home">Home</a>
+        <a href="cart.html" class="nav-cart-pill" id="nav-cart-pill" aria-label="Cart">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Cart
+          <span class="cart-badge" style="display:none">0</span>
+        </a>
         <a href="products.html" class="nav-link active" id="nav-products">Products</a>
         <a href="about.html"    class="nav-link" id="nav-about">How It Works</a>
         <a href="index.html#warehouses" class="nav-link" id="nav-wh">Warehouses</a>
@@ -50,24 +56,24 @@
       <div class="page-breadcrumb">
         <a href="index.html">Home</a> / <span>Products</span>
       </div>
-      <h1 class="page-title">Wholesale Product Catalog</h1>
-      <p style="color:rgba(255,255,255,0.5);font-size:15px;margin-top:8px">50,000+ products Â· Best wholesale prices Â· Pan-India delivery</p>
+      <h1 class="page-title">Wholesale B2B Catalog</h1>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;margin-top:8px">Bulk supplies for Kirana & retail shop owners · GST Invoices · Direct warehouse fulfillment</p>
     </div>
   </div>
 
-  <!-- â”€â”€ Category Filter Tabs â”€â”€ -->
+  <!-- ── Category Filter Tabs ── -->
   <div style="background:#fff;border-bottom:1px solid var(--grey-100);position:sticky;top:72px;z-index:90">
     <div class="container" style="display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none">
-      <button class="cat-filter-btn btn btn-sm btn-primary active" id="filter-all" data-cat="all" onclick="filterByCategory('all')">All</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-grocery" data-cat="grocery" onclick="filterByCategory('grocery')">ðŸ›’ Grocery</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-fmcg" data-cat="fmcg" onclick="filterByCategory('fmcg')">ðŸ§´ FMCG</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-beverages" data-cat="beverages" onclick="filterByCategory('beverages')">ðŸ§ƒ Beverages</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-snacks" data-cat="snacks" onclick="filterByCategory('snacks')">ðŸ¿ Snacks</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-cleaning" data-cat="cleaning" onclick="filterByCategory('cleaning')">ðŸ§¹ Cleaning</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-personal" data-cat="personal-care" onclick="filterByCategory('personal-care')">ðŸ§º Personal Care</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-dairy" data-cat="dairy" onclick="filterByCategory('dairy')">ðŸ¥› Dairy</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-spices" data-cat="spices" onclick="filterByCategory('spices')">ðŸŒ¶ï¸ Spices</button>
-      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-stationery" data-cat="stationery" onclick="filterByCategory('stationery')">âœï¸ Stationery</button>
+      <button class="cat-filter-btn btn btn-sm btn-primary active" id="filter-all" data-cat="all" onclick="filterByCategory('all')">All Catalog</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-beverages" data-cat="beverages" onclick="filterByCategory('beverages')">🧃 Cold Drinks & Beverages</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-snacks" data-cat="snacks" onclick="filterByCategory('snacks')">🍿 Biscuits, Bakery & Rusk</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-confectionery" data-cat="confectionery" onclick="filterByCategory('confectionery')">🍬 Chocolates & Candy</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-fmcg" data-cat="fmcg" onclick="filterByCategory('fmcg')">🧴 Soaps, Shampoo & Personal Care</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-health" data-cat="health" onclick="filterByCategory('health')">🥛 Health Drinks, Tea & Coffee</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-cleaning" data-cat="cleaning" onclick="filterByCategory('cleaning')">🧹 Cleaning & Detergents</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-baby" data-cat="baby" onclick="filterByCategory('baby')">👶 Diapers & Baby Care</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-grocery" data-cat="grocery" onclick="filterByCategory('grocery')">🌾 Grocery Staples & Oils</button>
+      <button class="cat-filter-btn btn btn-sm btn-dark" id="filter-stationery" data-cat="stationery" onclick="filterByCategory('stationery')">✏️ Stationery & Supplies</button>
     </div>
   </div>
 
@@ -90,43 +96,43 @@
         </div>
 
         <div class="sidebar-card">
-          <div class="sidebar-title">Brand</div>
+          <div class="sidebar-title">Top Brands</div>
           <div class="filter-search">
             <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
             <input type="text" placeholder="Search brandâ€¦" id="brand-search-input" />
           </div>
           <div class="checkbox-group" id="brand-filters">
-            <label class="checkbox-item" for="b-aashirvaad">
-              <input type="checkbox" id="b-aashirvaad" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">Aashirvaad</span><span class="checkbox-count">42</span>
-            </label>
-            <label class="checkbox-item" for="b-colgate">
-              <input type="checkbox" id="b-colgate" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">Colgate</span><span class="checkbox-count">38</span>
-            </label>
-            <label class="checkbox-item" for="b-lifebuoy">
-              <input type="checkbox" id="b-lifebuoy" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">Lifebuoy</span><span class="checkbox-count">29</span>
-            </label>
-            <label class="checkbox-item" for="b-nestle">
-              <input type="checkbox" id="b-nestle" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">NestlÃ©</span><span class="checkbox-count">55</span>
-            </label>
-            <label class="checkbox-item" for="b-hul">
-              <input type="checkbox" id="b-hul" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">HUL</span><span class="checkbox-count">73</span>
-            </label>
-            <label class="checkbox-item" for="b-itc">
-              <input type="checkbox" id="b-itc" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">ITC</span><span class="checkbox-count">31</span>
+            <label class="checkbox-item" for="b-parle">
+              <input type="checkbox" id="b-parle" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Parle</span><span class="checkbox-count">12</span>
             </label>
             <label class="checkbox-item" for="b-britannia">
               <input type="checkbox" id="b-britannia" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">Britannia</span><span class="checkbox-count">48</span>
+              <span class="checkbox-label">Britannia</span><span class="checkbox-count">15</span>
             </label>
-            <label class="checkbox-item" for="b-marico">
-              <input type="checkbox" id="b-marico" /> <div class="checkbox-box"></div>
-              <span class="checkbox-label">Marico</span><span class="checkbox-count">22</span>
+            <label class="checkbox-item" for="b-coca-cola">
+              <input type="checkbox" id="b-coca-cola" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Coca-Cola Co.</span><span class="checkbox-count">16</span>
+            </label>
+            <label class="checkbox-item" for="b-hul">
+              <input type="checkbox" id="b-hul" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">HUL (Lux/Surf/Red Label)</span><span class="checkbox-count">24</span>
+            </label>
+            <label class="checkbox-item" for="b-nestle">
+              <input type="checkbox" id="b-nestle" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Nestlé / Nescafé</span><span class="checkbox-count">10</span>
+            </label>
+            <label class="checkbox-item" for="b-cadbury">
+              <input type="checkbox" id="b-cadbury" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Mondelez / Cadbury</span><span class="checkbox-count">14</span>
+            </label>
+            <label class="checkbox-item" for="b-colgate">
+              <input type="checkbox" id="b-colgate" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">Colgate-Palmolive</span><span class="checkbox-count">8</span>
+            </label>
+            <label class="checkbox-item" for="b-pampers">
+              <input type="checkbox" id="b-pampers" /> <div class="checkbox-box"></div>
+              <span class="checkbox-label">P&G / Pampers</span><span class="checkbox-count">12</span>
             </label>
           </div>
         </div>
@@ -383,5 +389,32 @@
       setPage(Math.max(1, Math.min(12, currentPage + d)));
     }
   </script>
+
+<!-- Mobile Bottom Nav Bar -->
+<nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile navigation">
+  <a href="index.html" class="mobile-bottom-nav-item" id="mbnav-home">
+    <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+    Home
+  </a>
+  <a href="products.html" class="mobile-bottom-nav-item active" id="mbnav-products">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Products
+  </a>
+  <a href="cart.html" class="mobile-bottom-nav-item" id="mbnav-cart">
+    <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <span class="mnav-badge" id="mnav-cart-badge" style="display:none">0</span>
+    Cart
+  </a>
+  <a href="purchases.html" class="mobile-bottom-nav-item" id="mbnav-orders">
+    <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+    Orders
+  </a>
+  <a href="about.html" class="mobile-bottom-nav-item" id="mbnav-about">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    Info
+  </a>
+</nav>
 </body>
 </html>
+
+
